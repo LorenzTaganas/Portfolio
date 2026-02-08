@@ -33,7 +33,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="relative bg-linear-to-b from-black to-gray-950 border-t border-gray-800">
+    <footer className="relative bg-linear-to-b from-black to-gray-950 light:from-gray-50 light:to-white border-t border-gray-800 light:border-gray-200">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* About Section */}
@@ -42,22 +42,22 @@ const Footer = () => {
               <div className="w-10 h-10 bg-linear-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center font-bold text-white">
                 L
               </div>
-              <span className="text-white font-semibold text-lg">Lorenz Taganas</span>
+              <span className="text-white light:text-gray-900 font-semibold text-lg">Lorenz Taganas</span>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-gray-400 light:text-gray-600 text-sm leading-relaxed">
               Full Stack Developer & QA Specialist passionate about building quality applications and ensuring software excellence.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-white light:text-gray-900 font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-purple-400 transition-colors text-sm"
+                    className="text-gray-400 light:text-gray-600 hover:text-purple-400 transition-colors text-sm"
                   >
                     {link.name}
                   </a>
@@ -68,7 +68,7 @@ const Footer = () => {
 
           {/* Social Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Connect With Me</h3>
+            <h3 className="text-white light:text-gray-900 font-semibold mb-4">Connect With Me</h3>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
                 <a
@@ -76,7 +76,7 @@ const Footer = () => {
                   href={social.url}
                   target={social.url.startsWith('http') ? '_blank' : undefined}
                   rel={social.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className={`w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-2xl hover:bg-gray-700 transition-all duration-300 transform hover:scale-110 hover:shadow-lg ${social.color}`}
+                  className={`w-12 h-12 bg-gray-800 light:bg-gray-200 rounded-lg flex items-center justify-center text-2xl hover:bg-gray-700 light:hover:bg-gray-300 transition-all duration-300 transform hover:scale-110 hover:shadow-lg ${social.color}`}
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -96,12 +96,12 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-gray-800">
+        <div className="pt-8 border-t border-gray-800 light:border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-sm">
+            <p className="text-gray-500 light:text-gray-600 text-sm">
               © {currentYear} Lorenz Taganas. All rights reserved.
             </p>
-            <p className="text-gray-500 text-sm">
+            <p className="text-gray-500 light:text-gray-600 text-sm">
               Built with <span className="text-purple-400">Next.js</span> & <span className="text-blue-400">TypeScript</span>
             </p>
           </div>

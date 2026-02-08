@@ -32,20 +32,20 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="py-20 px-4 bg-linear-to-b from-black to-gray-950">
+    <section id="projects" className="py-20 px-4 bg-linear-to-b from-black to-gray-950 light:from-white light:to-gray-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white light:text-gray-900 mb-4">
             My <span className="bg-linear-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text">Projects</span>
           </h2>
-          <p className="text-gray-500">Here are some of my recent works</p>
+          <p className="text-gray-500 light:text-gray-600">Here are some of my recent works</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div 
               key={index} 
-              className="group relative bg-linear-to-br from-gray-900 to-gray-800 rounded-2xl p-6 border border-gray-800 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 transform hover:-translate-y-2"
+              className="group relative bg-linear-to-br from-gray-900 to-gray-800 light:from-gray-100 light:to-gray-50 rounded-2xl p-6 border border-gray-800 light:border-gray-200 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 transform hover:-translate-y-2"
             >
               {/* Project Icon */}
               <div className={`absolute -top-6 left-6 w-14 h-14 bg-linear-to-br ${project.color} rounded-xl flex items-center justify-center text-3xl shadow-lg`}>
@@ -54,10 +54,10 @@ const Projects = () => {
 
               {/* Content */}
               <div className="mt-6">
-                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-purple-400 transition-colors">
+                <h3 className="text-2xl font-semibold text-white light:text-gray-900 mb-3 group-hover:text-purple-400 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 mb-4 leading-relaxed text-sm">
+                <p className="text-gray-400 light:text-gray-600 mb-4 leading-relaxed text-sm">
                   {project.description}
                 </p>
 

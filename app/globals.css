@@ -68,7 +68,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -78,4 +78,76 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #9333ea, #db2777);
+}
+
+/* Light mode body background */
+html.light {
+  background: #ffffff;
+  color: #000000;
+}
+
+html.light body {
+  background: #ffffff;
+  color: #000000;
+}
+
+html.light main {
+  background: #ffffff !important;
+}
+
+/* Light mode text colors */
+html.light .text-white {
+  color: #111827 !important;
+}
+
+html.light .text-gray-300 {
+  color: #4b5563 !important;
+}
+
+html.light .text-gray-400 {
+  color: #6b7280 !important;
+}
+
+html.light .text-gray-500 {
+  color: #6b7280 !important;
+}
+
+/* Light mode backgrounds */
+html.light section,
+html.light footer {
+  background: #ffffff !important;
+}
+
+html.light .bg-black {
+  background: #ffffff !important;
+}
+
+html.light [class*="from-black"],
+html.light [class*="to-black"],
+html.light [class*="via-black"],
+html.light [class*="from-gray-950"],
+html.light [class*="to-gray-950"],
+html.light [class*="from-gray-900"],
+html.light [class*="to-gray-900"],
+html.light [class*="from-gray-800"],
+html.light [class*="to-gray-800"] {
+  background: linear-gradient(to bottom, #f9fafb, #ffffff) !important;
+}
+
+/* Light mode borders */
+html.light .border-gray-800 {
+  border-color: #e5e7eb !important;
+}
+
+/* Light mode cards */
+html.light [class*="bg-gray-950"],
+html.light [class*="bg-gray-900"],
+html.light [class*="bg-gray-800"] {
+  background: #f9fafb !important;
+}
+
+html body {
+  background: #000000;
+  color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

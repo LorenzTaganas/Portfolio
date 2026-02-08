@@ -30,7 +30,7 @@ const Snowflakes = () => {
       {snowflakes.map((flake) => (
         <div
           key={flake.id}
-          className="absolute text-white animate-fall"
+          className="absolute text-white light:text-blue-300 animate-fall"
           style={{
             left: `${flake.left}%`,
             fontSize: `${flake.fontSize}rem`,
