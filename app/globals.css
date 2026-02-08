@@ -32,6 +32,15 @@
   }
 }
 
+@keyframes fall {
+  from {
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
 .animate-fade-in {
   animation: fade-in 1s ease-out forwards;
 }
@@ -42,6 +51,10 @@
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+.animate-fall {
+  animation: fall linear infinite;
 }
 
 /* Smooth scrolling */

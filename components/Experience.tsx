@@ -7,7 +7,7 @@ const Experience = () => {
       company: "OJT Program",
       period: "Current",
       description: "Focusing on software quality assurance, conducting comprehensive testing, and ensuring application reliability using industry-standard tools.",
-      skills: ["QA Testing", "Jira", "Postman", "Playwright", "Bug Tracking"],
+      skills: ["QA Testing", "Jira", "Postman", "Bug Tracking"],
       icon: "🧪",
       color: "from-purple-500 to-pink-600"
     },
@@ -23,7 +23,7 @@ const Experience = () => {
     {
       title: "Salesforce Developer",
       company: "Training & Certification",
-      period: "Recent",
+      period: "3rd Year College",
       description: "Gained hands-on experience with Salesforce platform, developing custom solutions and understanding CRM workflows.",
       skills: ["Salesforce", "CRM", "Apex", "Cloud Platform"],
       icon: "☁️",
@@ -34,7 +34,7 @@ const Experience = () => {
   const education = [
     {
       degree: "Bachelor of Science in Information Technology",
-      school: "University",
+      school: "Bulacan State University",
       period: "Expected 2026",
       icon: "🎓",
       highlights: ["Full Stack Development", "Game Developer", "Quality Assurance"]
