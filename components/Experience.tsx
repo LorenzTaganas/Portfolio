@@ -35,7 +35,7 @@ const Experience = () => {
     {
       degree: "Bachelor of Science in Information Technology",
       school: "Bulacan State University",
-      period: "Expected 2026",
+      period: "2026",
       icon: "🎓",
       highlights: ["Full Stack Development", "Game Developer", "Quality Assurance"]
     }
