@@ -2,80 +2,69 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <div id="home" className="relative pb-20 pt-10">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-linear-to-br from-purple-900/20 via-black to-blue-900/20 light:from-purple-200/30 light:via-white light:to-blue-200/30 animate-pulse"></div>
-      
-      <div className="relative h-screen w-full flex items-center justify-center">
-        <div className="text-center">
-          {/* Animated greeting */}
-          <div className="mb-4 animate-fade-in">
-            <span className="text-purple-400 light:text-purple-600 text-lg md:text-xl">👋 Welcome to my portfolio</span>
+    <section id="home" className="relative w-full px-4 pt-28 pb-20">
+      <div className="mx-auto flex min-h-[calc(100vh-7rem)] w-full max-w-5xl items-center justify-center">
+        <div className="w-full max-w-3xl text-center">
+          <div className="mb-5 animate-fade-in">
+            <span className="inline-flex items-center rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm text-purple-300 light:border-purple-200 light:bg-purple-50 light:text-purple-700">
+              Welcome to my portfolio
+            </span>
           </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white light:text-gray-900 animate-slide-up">
-            Hi, I'm <span className="bg-linear-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text">Lorenz</span>
+
+          <h1 className="text-5xl font-bold tracking-tight text-white light:text-gray-900 md:text-7xl animate-slide-up">
+            Hi, I&apos;m <span className="text-pink-500 light:text-purple-700">Lorenz</span>
           </h1>
-          
-          <p className="text-xl md:text-2xl text-gray-300 light:text-gray-600 mb-4 animate-slide-up">
+
+          <p className="mt-5 text-xl text-gray-300 light:text-gray-600 md:text-2xl animate-slide-up">
             Quality Assurance Specialist & Developer
           </p>
-          
-          <div className="flex justify-center gap-2 mb-8 flex-wrap">
-            <span className="px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full text-purple-400 light:text-purple-600 text-sm">
+
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm text-purple-300 light:border-purple-200 light:bg-purple-50 light:text-purple-700">
               🧪 QA Testing
             </span>
-            <span className="px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 light:text-blue-600 text-sm">
+            <span className="rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-300 light:border-blue-200 light:bg-blue-50 light:text-blue-700">
               💻 Full Stack
             </span>
-            <span className="px-4 py-2 bg-pink-500/10 border border-pink-500/30 rounded-full text-pink-400 light:text-pink-600 text-sm">
+            <span className="rounded-full border border-pink-500/30 bg-pink-500/10 px-4 py-2 text-sm text-pink-300 light:border-pink-200 light:bg-pink-50 light:text-pink-700">
               📱 Mobile Dev
             </span>
-            <span className="px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 light:text-cyan-600 text-sm">
+            <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-sm text-cyan-300 light:border-cyan-200 light:bg-cyan-50 light:text-cyan-700">
               ☁️ Salesforce
             </span>
           </div>
-          
-          <p className="text-lg text-gray-400 light:text-gray-600 max-w-2xl mx-auto mb-8 px-4 leading-relaxed">
+
+          <p className="mx-auto mt-8 max-w-2xl px-4 text-lg leading-relaxed text-gray-400 light:text-gray-600">
             Building full-stack applications and ensuring software quality through comprehensive testing.
           </p>
-          
-          <div className="flex gap-4 justify-center animate-fade-in flex-wrap px-4">
-            <a 
-              href="#projects" 
-              className="group px-8 py-4 bg-linear-to-r from-purple-500 to-pink-600 text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-105"
+
+          <div className="mt-10 flex flex-wrap justify-center gap-4 px-4 animate-fade-in">
+            <a
+              href="#projects"
+              className="group rounded-lg bg-pink-500 px-8 py-4 font-medium text-white transition-all duration-300 hover:bg-pink-400 hover:shadow-lg hover:shadow-pink-500/30 transform hover:scale-105"
             >
               <span className="flex items-center gap-2">
                 View My Work
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </span>
             </a>
-            <a 
-              href="#contact" 
-              className="group px-8 py-4 border-2 border-purple-500 text-purple-400 rounded-lg hover:bg-purple-500 hover:text-white transition-all duration-300 transform hover:scale-105"
+            <a
+              href="#contact"
+              className="group rounded-lg border-2 border-purple-500 px-8 py-4 font-medium text-purple-300 transition-all duration-300 hover:bg-purple-500 hover:text-white transform hover:scale-105"
             >
               Contact Me
             </a>
-            <a 
-              href="/resume.pdf" 
+            <a
+              href="/resume.pdf"
               download
-              className="group px-8 py-4 border-2 border-purple-500 text-purple-400 light:text-purple-600 light:border-purple-600 rounded-lg hover:bg-purple-500/10 transition-all duration-300 transform hover:scale-105"
+              className="group rounded-lg border-2 border-purple-500 px-8 py-4 font-medium text-purple-300 light:text-purple-700 light:border-purple-600 transition-all duration-300 hover:bg-purple-500/10 transform hover:scale-105"
             >
-              <span className="flex items-center gap-2">
-                📄 Resume
-              </span>
+              <span className="flex items-center gap-2">📄 Resume</span>
             </a>
-          </div>
-
-          {/* Scroll indicator */}
-          <div className="mt-16 animate-bounce">
-            <div className="w-6 h-10 border-2 border-purple-500 rounded-full mx-auto flex items-start justify-center p-2">
-              <div className="w-1 h-3 bg-purple-500 rounded-full"></div>
-            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

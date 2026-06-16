@@ -6,7 +6,7 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <main className="relative bg-black light:bg-white flex justify-center items-center flex-col overflow-hidden mx-auto">
+    <main className="relative mx-auto flex w-full flex-col overflow-hidden bg-black light:bg-white">
       <Hero />
       <About />
       <Projects />

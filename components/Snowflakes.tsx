@@ -10,7 +10,7 @@ const Snowflakes = () => {
     const currentMonth = new Date().getMonth()
     // Temporarily set to true to test - change back to: currentMonth >= 8 && currentMonth <= 11
     setShowSnow(currentMonth >= 8 && currentMonth <= 11)  // Only ber months
-    //setShowSnow(true)
+    //setShowSnow(true) // always show snow for testing
   }, [])
 
   if (!showSnow) return null
