@@ -6,6 +6,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -17,6 +18,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -24,9 +26,12 @@
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -36,6 +41,7 @@
   from {
     transform: translateY(-10vh) rotate(0deg);
   }
+
   to {
     transform: translateY(110vh) rotate(360deg);
   }
@@ -62,6 +68,39 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Design Tokens & Theme Configuration */
+:root {
+  /* Cozy Dark Mode (Default) */
+  --bg-primary: #2D2521;       /* Very dark espresso */
+  --bg-secondary: #3D342E;     /* Deep espresso */
+  --text-primary: #F5EBE6;     /* Soft Oatmeal Cream */
+  --text-secondary: #C4B5A7;   /* Muted sand */
+  --accent-primary: #E4D5C7;   /* Sand accent */
+  --accent-secondary: #9C6644; /* Terracotta accent */
+  --accent-text: #2D2521;      /* Espresso text on sand bg */
+  --border-color: rgba(245, 235, 230, 0.15);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+html.light {
+  /* Warm Light Mode */
+  --bg-primary: #F5EBE6;       /* Soft Cream/Oatmeal */
+  --bg-secondary: #E4D5C7;     /* Warm Sand */
+  --text-primary: #3D342E;     /* Deep Espresso */
+  --text-secondary: #5C6B73;   /* Slate Blue/Grey */
+  --accent-primary: #9C6644;   /* Warm Terracotta */
+  --accent-secondary: #5C6B73; /* Slate Blue/Grey */
+  --accent-text: #F5EBE6;      /* Oatmeal cream text on terracotta bg */
+  --border-color: rgba(61, 52, 46, 0.15);
+  --shadow-color: rgba(61, 52, 46, 0.1);
+}
+
+html, body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
@@ -72,82 +111,149 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #a855f7;
+  background: var(--accent-primary);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9333ea;
+  background: var(--accent-secondary);
 }
 
-/* Light mode body background */
-html.light {
-  background: #ffffff;
-  color: #000000;
+.bg-navbar {
+  background-color: rgba(45, 37, 33, 0.85) !important;
+  border-bottom: 1px solid var(--border-color);
 }
 
-html.light body {
-  background: #ffffff;
-  color: #000000;
+html.light .bg-navbar {
+  background-color: rgba(245, 235, 230, 0.85) !important;
 }
 
-html.light main {
-  background: #ffffff !important;
+/* Base Utility Mapping to Custom Theme variables */
+.bg-black {
+  background-color: var(--bg-primary) !important;
 }
 
-/* Light mode text colors */
-html.light .text-white {
-  color: #111827 !important;
+.bg-gray-800,
+.bg-gray-900 {
+  background-color: var(--bg-secondary) !important;
 }
 
-html.light .text-gray-300 {
-  color: #4b5563 !important;
+.bg-gray-950 {
+  background-color: var(--bg-primary) !important;
 }
 
-html.light .text-gray-400 {
-  color: #6b7280 !important;
+html.light .light\:bg-white,
+html.light .light\:bg-gray-50,
+html.light .light\:bg-gray-100 {
+  background-color: var(--bg-secondary) !important;
 }
 
-html.light .text-gray-500 {
-  color: #6b7280 !important;
+html.light .light\:bg-white\/80 {
+  background-color: rgba(245, 235, 230, 0.8) !important;
 }
 
-/* Light mode backgrounds */
-html.light section,
-html.light footer {
-  background: #ffffff !important;
+.text-white {
+  color: var(--text-primary) !important;
 }
 
-html.light .bg-black {
-  background: #ffffff !important;
+.text-gray-300,
+.text-gray-400,
+.text-gray-500 {
+  color: var(--text-secondary) !important;
 }
 
-html.light [class*="from-black"],
-html.light [class*="to-black"],
-html.light [class*="via-black"],
-html.light [class*="from-gray-950"],
-html.light [class*="to-gray-950"],
-html.light [class*="from-gray-900"],
-html.light [class*="to-gray-900"],
-html.light [class*="from-gray-800"],
-html.light [class*="to-gray-800"] {
-  background: linear-gradient(to bottom, #f9fafb, #ffffff) !important;
+html.light .light\:text-gray-900 {
+  color: var(--text-primary) !important;
 }
 
-/* Light mode borders */
-html.light .border-gray-800 {
-  border-color: #e5e7eb !important;
+html.light .light\:text-gray-700,
+html.light .light\:text-gray-600 {
+  color: var(--text-secondary) !important;
 }
 
-/* Light mode cards */
-html.light [class*="bg-gray-950"],
-html.light [class*="bg-gray-900"],
-html.light [class*="bg-gray-800"] {
-  background: #f9fafb !important;
+/* Accents mapping */
+.text-pink-400,
+.text-pink-500,
+.text-purple-400,
+.text-purple-300,
+.light\:text-purple-700 {
+  color: var(--accent-primary) !important;
+}
+
+.bg-pink-500,
+.bg-purple-500 {
+  background-color: var(--accent-primary) !important;
+  color: var(--accent-text) !important;
+}
+
+.bg-pink-500\/10,
+.bg-purple-500\/10,
+.bg-blue-500\/10,
+.bg-cyan-500\/10,
+.bg-yellow-500\/10 {
+  background-color: rgba(156, 102, 68, 0.1) !important;
+}
+
+html.light .light\:bg-purple-50,
+html.light .light\:bg-blue-50,
+html.light .light\:bg-pink-50,
+html.light .light\:bg-cyan-50 {
+  background-color: rgba(156, 102, 68, 0.1) !important;
+}
+
+.border-purple-500\/30,
+.border-purple-500\/20,
+.border-blue-500\/30,
+.border-blue-500\/20,
+.border-pink-500\/30,
+.border-pink-500\/20,
+.border-cyan-500\/30,
+.border-cyan-500\/20,
+.border-yellow-500\/30,
+.border-yellow-500\/20 {
+  border-color: var(--border-color) !important;
+}
+
+.border-gray-800,
+.border-gray-200 {
+  border-color: var(--border-color) !important;
+}
+
+.border-purple-500,
+.border-pink-500,
+.border-blue-500 {
+  border-color: var(--accent-primary) !important;
+}
+
+/* Hover effects */
+.group:hover {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 10px 25px -5px var(--shadow-color) !important;
+}
+
+.hover\:border-purple-500\/50:hover {
+  border-color: var(--accent-primary) !important;
+}
+
+/* Make sure active buttons and links look gorgeous */
+.hover\:bg-purple-500\/10:hover {
+  background-color: rgba(156, 102, 68, 0.15) !important;
+}
+
+.hover\:bg-purple-500:hover,
+.hover\:bg-pink-500:hover,
+.hover\:bg-pink-400:hover {
+  background-color: var(--accent-secondary) !important;
+  color: var(--accent-text) !important;
+}
+
+.hover\:shadow-pink-500\/30:hover,
+.hover\:shadow-purple-500\/20:hover {
+  box-shadow: 0 10px 15px -3px var(--shadow-color) !important;
 }
 
 html body {
-  background: #000000;
-  color: #ffffff;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
 }

@@ -6,30 +6,30 @@ const Hero = () => {
       <div className="mx-auto flex min-h-[calc(100vh-7rem)] w-full max-w-5xl items-center justify-center">
         <div className="w-full max-w-3xl text-center">
           <div className="mb-5 animate-fade-in">
-            <span className="inline-flex items-center rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm text-purple-300 light:border-purple-200 light:bg-purple-50 light:text-purple-700">
+            <span className="inline-flex items-center rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm text-purple-300">
               Welcome to my portfolio
             </span>
           </div>
 
           <h1 className="text-5xl font-bold tracking-tight text-white light:text-gray-900 md:text-7xl animate-slide-up">
-            Hi, I&apos;m <span className="text-pink-500 light:text-purple-700">Lorenz</span>
+            Hi, I&apos;m <span className="text-pink-500">Lorenz</span>
           </h1>
 
-          <p className="mt-5 text-xl text-gray-300 light:text-gray-600 md:text-2xl animate-slide-up">
+          <p className="mt-5 text-xl text-gray-300 md:text-2xl animate-slide-up">
             Quality Assurance Specialist & Developer
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm text-purple-300 light:border-purple-200 light:bg-purple-50 light:text-purple-700">
+            <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm text-purple-300">
               🧪 QA Testing
             </span>
-            <span className="rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-300 light:border-blue-200 light:bg-blue-50 light:text-blue-700">
+            <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm text-purple-300">
               💻 Full Stack
             </span>
-            <span className="rounded-full border border-pink-500/30 bg-pink-500/10 px-4 py-2 text-sm text-pink-300 light:border-pink-200 light:bg-pink-50 light:text-pink-700">
+            <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm text-purple-300">
               📱 Mobile Dev
             </span>
-            <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-sm text-cyan-300 light:border-cyan-200 light:bg-cyan-50 light:text-cyan-700">
+            <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm text-purple-300">
               ☁️ Salesforce
             </span>
           </div>
@@ -50,14 +50,14 @@ const Hero = () => {
             </a>
             <a
               href="#contact"
-              className="group rounded-lg border-2 border-purple-500 px-8 py-4 font-medium text-purple-300 transition-all duration-300 hover:bg-purple-500 hover:text-white transform hover:scale-105"
+              className="group rounded-lg border-2 border-purple-500 px-8 py-4 font-medium text-purple-300 transition-all duration-300 hover:bg-purple-500 transform hover:scale-105"
             >
               Contact Me
             </a>
             <a
               href="/resume.pdf"
               download
-              className="group rounded-lg border-2 border-purple-500 px-8 py-4 font-medium text-purple-300 light:text-purple-700 light:border-purple-600 transition-all duration-300 hover:bg-purple-500/10 transform hover:scale-105"
+              className="group rounded-lg border-2 border-purple-500 px-8 py-4 font-medium text-purple-300 transition-all duration-300 hover:bg-purple-500/10 transform hover:scale-105"
             >
               <span className="flex items-center gap-2">📄 Resume</span>
             </a>

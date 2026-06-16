@@ -9,7 +9,7 @@ const Projects = () => {
       github: "https://github.com/LorenzTaganas/Arthubb",
       demo: "#",
       icon: "🎨",
-      color: "from-purple-500 to-pink-600"
+      color: "bg-pink-500 text-[var(--accent-text)]"
     },
     {
       title: "Jam Master",
@@ -18,7 +18,7 @@ const Projects = () => {
       github: "https://github.com/LorenzTaganas/Jam-Master-Mobile-app",
       demo: "#",
       icon: "🎮",
-      color: "from-blue-500 to-cyan-600"
+      color: "bg-pink-500 text-[var(--accent-text)]"
     },
     {
       title: "Student Management System",
@@ -27,25 +27,25 @@ const Projects = () => {
       github: "https://github.com/LorenzTaganas/StudentManagementSystem",
       demo: "#",
       icon: "📚",
-      color: "from-green-500 to-emerald-600"
+      color: "bg-pink-500 text-[var(--accent-text)]"
     }
   ]
 
   return (
-    <section id="projects" className="py-20 px-4 bg-black light:bg-white">
+    <section id="projects" className="py-20 px-4 bg-black">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white light:text-gray-900 mb-4">
-            My <span className="text-pink-400 light:text-purple-700">Projects</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            My <span className="text-pink-400">Projects</span>
           </h2>
-          <p className="text-gray-500 light:text-gray-600">Here are some of my recent works</p>
+          <p className="text-gray-500">Here are some of my recent works</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div 
               key={index} 
-              className="group relative bg-gray-900 light:bg-gray-100 rounded-2xl p-6 border border-gray-800 light:border-gray-200 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 transform hover:-translate-y-2"
+              className="group relative bg-gray-900 rounded-2xl p-6 border border-gray-800 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl transform hover:-translate-y-2"
             >
               {/* Project Icon */}
               <div className={`absolute -top-6 left-6 w-14 h-14 rounded-xl flex items-center justify-center text-3xl shadow-lg ${project.color}`}>
@@ -54,10 +54,10 @@ const Projects = () => {
 
               {/* Content */}
               <div className="mt-6">
-                <h3 className="text-2xl font-semibold text-white light:text-gray-900 mb-3 group-hover:text-purple-400 transition-colors">
+                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-pink-400 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 light:text-gray-600 mb-4 leading-relaxed text-sm">
+                <p className="text-gray-400 mb-4 leading-relaxed text-sm">
                   {project.description}
                 </p>
 
@@ -79,7 +79,7 @@ const Projects = () => {
                     href={project.github} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="flex-1 text-center px-4 py-2 bg-pink-500 text-white rounded-lg hover:shadow-lg hover:shadow-pink-500/30 transition-all duration-300 transform hover:scale-105 text-sm font-medium"
+                    className="flex-1 text-center px-4 py-2 bg-pink-500 text-white rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-sm font-medium"
                   >
                     GitHub →
                   </a>
