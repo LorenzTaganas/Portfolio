@@ -32,7 +32,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#home" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 bg-linear-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center font-bold text-white group-hover:scale-110 transition-transform">
+            <div className="w-10 h-10 bg-pink-500 rounded-lg flex items-center justify-center font-bold text-white group-hover:scale-110 transition-transform">
               L
             </div>
             <span className="text-white dark:text-white light:text-gray-900 font-semibold text-lg hidden sm:block">Lorenz Taganas</span>
@@ -62,7 +62,7 @@ const Navbar = () => {
             <a
               href="/resume.pdf"
               download
-              className="ml-4 px-6 py-2 bg-linear-to-r from-purple-500 to-pink-600 text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-105"
+              className="ml-4 px-6 py-2 bg-pink-500 text-white rounded-lg hover:shadow-lg hover:shadow-pink-500/30 transition-all duration-300 transform hover:scale-105"
             >
               Resume
             </a>
@@ -110,7 +110,7 @@ const Navbar = () => {
             <a
               href="/resume.pdf"
               download
-              className="block px-3 py-2 mt-2 bg-linear-to-r from-purple-500 to-pink-600 text-white rounded-lg text-center"
+              className="block px-3 py-2 mt-2 bg-pink-500 text-white rounded-lg text-center"
             >
               Download Resume
             </a>

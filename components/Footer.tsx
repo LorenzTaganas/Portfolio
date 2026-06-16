@@ -33,13 +33,13 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="relative bg-linear-to-b from-black to-gray-950 light:from-gray-50 light:to-white border-t border-gray-800 light:border-gray-200">
+    <footer className="relative bg-black light:bg-white border-t border-gray-800 light:border-gray-200">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* About Section */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-linear-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center font-bold text-white">
+              <div className="w-10 h-10 bg-pink-500 rounded-lg flex items-center justify-center font-bold text-white">
                 L
               </div>
               <span className="text-white light:text-gray-900 font-semibold text-lg">Lorenz Taganas</span>
@@ -87,7 +87,7 @@ const Footer = () => {
               <a
                 href="/resume.pdf"
                 download
-                className="inline-block px-4 py-2 bg-linear-to-r from-purple-500 to-pink-600 text-white rounded-lg text-sm hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-105"
+                className="inline-block px-4 py-2 bg-pink-500 text-white rounded-lg text-sm hover:shadow-lg hover:shadow-pink-500/30 transition-all duration-300 transform hover:scale-105"
               >
                 Download Resume
               </a>
@@ -111,7 +111,7 @@ const Footer = () => {
       {/* Scroll to Top Button */}
       <a
         href="#home"
-        className="absolute right-8 -top-6 w-12 h-12 bg-linear-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-110"
+        className="absolute right-8 -top-6 w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white hover:shadow-lg hover:shadow-pink-500/30 transition-all duration-300 transform hover:scale-110"
         aria-label="Scroll to top"
       >
         ↑

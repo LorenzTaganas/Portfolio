@@ -32,11 +32,11 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="py-20 px-4 bg-linear-to-b from-black to-gray-950 light:from-white light:to-gray-50">
+    <section id="projects" className="py-20 px-4 bg-black light:bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white light:text-gray-900 mb-4">
-            My <span className="bg-linear-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text">Projects</span>
+            My <span className="text-pink-400 light:text-purple-700">Projects</span>
           </h2>
           <p className="text-gray-500 light:text-gray-600">Here are some of my recent works</p>
         </div>
@@ -45,10 +45,10 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div 
               key={index} 
-              className="group relative bg-linear-to-br from-gray-900 to-gray-800 light:from-gray-100 light:to-gray-50 rounded-2xl p-6 border border-gray-800 light:border-gray-200 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 transform hover:-translate-y-2"
+              className="group relative bg-gray-900 light:bg-gray-100 rounded-2xl p-6 border border-gray-800 light:border-gray-200 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 transform hover:-translate-y-2"
             >
               {/* Project Icon */}
-              <div className={`absolute -top-6 left-6 w-14 h-14 bg-linear-to-br ${project.color} rounded-xl flex items-center justify-center text-3xl shadow-lg`}>
+              <div className={`absolute -top-6 left-6 w-14 h-14 rounded-xl flex items-center justify-center text-3xl shadow-lg ${project.color}`}>
                 {project.icon}
               </div>
 
@@ -79,7 +79,7 @@ const Projects = () => {
                     href={project.github} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="flex-1 text-center px-4 py-2 bg-linear-to-r from-purple-500 to-pink-600 text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-105 text-sm font-medium"
+                    className="flex-1 text-center px-4 py-2 bg-pink-500 text-white rounded-lg hover:shadow-lg hover:shadow-pink-500/30 transition-all duration-300 transform hover:scale-105 text-sm font-medium"
                   >
                     GitHub →
                   </a>
@@ -87,7 +87,7 @@ const Projects = () => {
               </div>
 
               {/* Hover Effect Overlay */}
-              <div className={`absolute inset-0 bg-linear-to-br ${project.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`}></div>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500 bg-white"></div>
             </div>
           ))}
         </div>
