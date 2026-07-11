@@ -1,6 +1,45 @@
-import React from 'react'
+'use client'
+
+import React, { useState, useEffect } from 'react'
+
+const roles = [
+  'Full Stack Developer',
+  'Frontend Developer',
+  'Backend Developer',
+  'Mobile Developer',
+  'UI/UX Designer',
+  'Salesforce Developer',
+  'Software Tester',
+]
 
 const Hero = () => {
+  const [currentRole, setCurrentRole] = useState(0)
+  const [displayed, setDisplayed] = useState('')
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [charIndex, setCharIndex] = useState(0)
+
+  useEffect(() => {
+    const target = roles[currentRole]
+    let timeout: NodeJS.Timeout
+
+    if (!isDeleting && charIndex <= target.length) {
+      setDisplayed(target.slice(0, charIndex))
+      timeout = setTimeout(() => setCharIndex((c) => c + 1), charIndex === target.length ? 1800 : 75)
+      if (charIndex === target.length) {
+        timeout = setTimeout(() => setIsDeleting(true), 1800)
+      }
+    } else if (isDeleting && charIndex >= 0) {
+      setDisplayed(target.slice(0, charIndex))
+      timeout = setTimeout(() => setCharIndex((c) => c - 1), 40)
+      if (charIndex === 0) {
+        setIsDeleting(false)
+        setCurrentRole((r) => (r + 1) % roles.length)
+      }
+    }
+
+    return () => clearTimeout(timeout)
+  }, [charIndex, isDeleting, currentRole])
+
   return (
     <section id="home" className="relative w-full px-4 pt-28 pb-20 overflow-hidden">
       {/* Background decoration */}
@@ -8,38 +47,27 @@ const Hero = () => {
 
       <div className="mx-auto flex min-h-[calc(100vh-7rem)] w-full max-w-6xl items-center justify-center">
         <div className="grid md:grid-cols-12 gap-12 items-center w-full">
-          
+
           {/* Text Content */}
           <div className="md:col-span-7 text-center md:text-left flex flex-col items-center md:items-start order-2 md:order-1">
-            <div className="mb-5 animate-fade-in">
+            {/* <div className="mb-5 animate-fade-in">
               <span className="inline-flex items-center rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm text-purple-300">
                 Welcome to my portfolio
               </span>
-            </div>
+            </div> */}
 
             <h1 className="text-4xl font-bold tracking-tight text-white light:text-gray-900 sm:text-5xl md:text-6xl lg:text-7xl animate-slide-up leading-tight">
               Hi, I&apos;m <span className="text-pink-500">Lorenz</span>
             </h1>
 
-            <p className="mt-4 text-xl text-gray-300 md:text-2xl animate-slide-up font-medium">
-              Quality Assurance Specialist & Developer
+            {/* Typewriter Role */}
+            <p className="mt-4 text-xl text-gray-300 md:text-2xl animate-slide-up font-medium flex items-center flex-wrap gap-x-2">
+              <span>I am a</span>
+              <span className="text-pink-400">{displayed}</span>
+              <span className="inline-block w-0.5 h-6 bg-pink-400 animate-blink-cursor" />
             </p>
 
-            {/* Tags */}
-            <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-2 max-w-md">
-              <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1.5 text-xs sm:text-sm text-purple-300">
-                🧪 QA Testing
-              </span>
-              <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1.5 text-xs sm:text-sm text-purple-300">
-                💻 Full Stack
-              </span>
-              <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1.5 text-xs sm:text-sm text-purple-300">
-                📱 Mobile Dev
-              </span>
-              <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1.5 text-xs sm:text-sm text-purple-300">
-                ☁️ Salesforce
-              </span>
-            </div>
+
 
             <p className="mt-6 text-base sm:text-lg leading-relaxed text-gray-400 light:text-gray-600 max-w-xl">
               Building full-stack applications and ensuring software quality through comprehensive testing.
@@ -77,7 +105,7 @@ const Hero = () => {
             <div className="relative group w-64 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[400px]">
               {/* Outer Decorative Gradient Ring */}
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 opacity-30 blur-sm group-hover:opacity-75 transition duration-500 group-hover:duration-200" />
-              
+
               {/* Floating accent background glow */}
               <div className="absolute -inset-4 bg-gradient-to-tr from-pink-500/10 to-purple-500/10 rounded-3xl blur-xl opacity-50 group-hover:opacity-80 transition duration-500" />
 
@@ -88,7 +116,7 @@ const Hero = () => {
                   alt="Lorenz Taganas Portrait"
                   className="w-full h-full object-cover object-top transition duration-500 filter brightness-95 group-hover:brightness-100"
                 />
-                
+
                 {/* Overlay Vignette */}
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-950/40 via-transparent to-transparent pointer-events-none" />
               </div>
