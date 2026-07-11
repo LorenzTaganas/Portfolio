@@ -14,7 +14,7 @@ const Projects = () => {
     {
       title: "Jam Master",
       description: "Interactive mobile game application with engaging gameplay mechanics and smooth user experience",
-      tech: ["Java", "Android Studio", "Mobile Dev"],
+      tech: ["Java", "Firebase", "Mobile Dev", "Game Dev"],
       github: "https://github.com/LorenzTaganas/Jam-Master-Mobile-app",
       demo: "#",
       icon: "🎮",
@@ -43,8 +43,8 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="group relative bg-gray-900 rounded-2xl p-6 border border-gray-800 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl transform hover:-translate-y-2"
             >
               {/* Project Icon */}
@@ -64,8 +64,8 @@ const Projects = () => {
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech) => (
-                    <span 
-                      key={tech} 
+                    <span
+                      key={tech}
                       className="text-xs bg-purple-500/10 text-purple-400 px-3 py-1.5 rounded-full border border-purple-500/20 hover:bg-purple-500/20 transition-colors"
                     >
                       {tech}
@@ -75,10 +75,10 @@ const Projects = () => {
 
                 {/* Links */}
                 <div className="flex gap-4">
-                  <a 
-                    href={project.github} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex-1 text-center px-4 py-2 bg-pink-500 text-white rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-sm font-medium"
                   >
                     GitHub →
