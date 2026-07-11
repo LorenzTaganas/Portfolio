@@ -34,10 +34,10 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       {children}
       <Footer />
 
-      {/* Floating Sticky Scroll to Top Button on lower left */}
+      {/* Floating Sticky Scroll to Top Button on lower right */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 left-8 z-50 w-12 h-12 bg-pink-500 text-[var(--accent-text)] rounded-full flex items-center justify-center shadow-lg transition-all duration-500 hover:bg-pink-400 hover:scale-110 active:scale-95 hover:shadow-pink-500/30 ${
+        className={`fixed bottom-8 right-8 z-50 w-12 h-12 bg-pink-500 text-[var(--accent-text)] rounded-full flex items-center justify-center shadow-lg transition-all duration-500 hover:bg-pink-400 hover:scale-110 active:scale-95 hover:shadow-pink-500/30 ${
           isVisible ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
         aria-label="Scroll to top"
