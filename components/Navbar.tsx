@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useTheme } from './ThemeProvider'
 
 const Navbar = () => {
@@ -8,6 +8,9 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isColorDropdownOpen, setIsColorDropdownOpen] = useState(false)
   const { theme, toggleTheme, accentColor, setAccentColor } = useTheme()
+  const navRef = useRef<HTMLDivElement>(null)
+  const itemRefs = useRef<(HTMLAnchorElement | null)[]>([])
+  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0 })
 
   const accentOptions = [
     { name: 'default' as const, colorClass: 'bg-gradient-to-tr from-pink-500 via-purple-500 to-cyan-500' },
@@ -20,6 +23,23 @@ const Navbar = () => {
   ]
 
   const [activeSection, setActiveSection] = useState('home')
+
+  // Update sliding indicator position whenever activeSection changes
+  useEffect(() => {
+    const navItems = ['home', 'about', 'projects', 'experience', 'contact']
+    const activeIndex = navItems.indexOf(activeSection)
+    const activeEl = itemRefs.current[activeIndex]
+    const navEl = navRef.current
+    if (activeEl && navEl) {
+      const navRect = navEl.getBoundingClientRect()
+      const elRect = activeEl.getBoundingClientRect()
+      setIndicatorStyle({
+        left: elRect.left - navRect.left + elRect.width / 2 - 8, // center a 16px bar
+        width: 16,
+        opacity: 1,
+      })
+    }
+  }, [activeSection])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,22 +101,28 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            {navItems.map((item) => {
-              const isActive = activeSection === item.href.slice(1)
-              return (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="relative px-4 py-2 text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:bg-purple-500/10 rounded-lg transition-all duration-300"
-                >
-                  {item.name}
-                  {isActive && (
-                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-pink-500 rounded-full" />
-                  )}
-                </a>
-              )
-            })}
+          <div ref={navRef} className="hidden md:flex items-center space-x-1 relative">
+            {navItems.map((item, index) => (
+              <a
+                key={item.name}
+                ref={(el) => { itemRefs.current[index] = el }}
+                href={item.href}
+                className="relative px-4 py-2 text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:bg-purple-500/10 rounded-lg transition-all duration-300"
+              >
+                {item.name}
+              </a>
+            ))}
+
+            {/* Sliding active indicator */}
+            <span
+              className="absolute bottom-1.5 h-0.5 rounded-full bg-pink-500 pointer-events-none"
+              style={{
+                left: indicatorStyle.left,
+                width: indicatorStyle.width,
+                opacity: indicatorStyle.opacity,
+                transition: 'left 0.35s cubic-bezier(0.4,0,0.2,1), width 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.25s ease',
+              }}
+            />
             
             {/* Theme Toggle Button */}
             <button
