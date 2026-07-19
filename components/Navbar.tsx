@@ -6,7 +6,20 @@ import { useTheme } from './ThemeProvider'
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const { theme, toggleTheme } = useTheme()
+  const [isColorDropdownOpen, setIsColorDropdownOpen] = useState(false)
+  const { theme, toggleTheme, accentColor, setAccentColor } = useTheme()
+
+  const accentOptions = [
+    { name: 'default' as const, colorClass: 'bg-gradient-to-tr from-pink-500 via-purple-500 to-cyan-500' },
+    { name: 'pink' as const, colorClass: 'bg-[#FF79C6]' },
+    { name: 'emerald' as const, colorClass: 'bg-[#10B981]' },
+    { name: 'cyan' as const, colorClass: 'bg-[#06B6D4]' },
+    { name: 'orange' as const, colorClass: 'bg-[#F97316]' },
+    { name: 'purple' as const, colorClass: 'bg-[#8B5CF6]' },
+    { name: 'amber' as const, colorClass: 'bg-[#F59E0B]' },
+  ]
+
+  const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +27,35 @@ const Navbar = () => {
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px',
+      threshold: 0,
+    }
+
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id')
+          if (id) {
+            setActiveSection(id)
+          }
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(handleIntersection, observerOptions)
+    
+    const sections = ['home', 'about', 'projects', 'experience', 'contact']
+    sections.forEach((id) => {
+      const element = document.getElementById(id)
+      if (element) observer.observe(element)
+    })
+
+    return () => observer.disconnect()
   }, [])
 
   const navItems = [
@@ -40,32 +82,122 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="px-4 py-2 text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:bg-purple-500/10 rounded-lg transition-all duration-300"
-              >
-                {item.name}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href.slice(1)
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="relative px-4 py-2 text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:bg-purple-500/10 rounded-lg transition-all duration-300"
+                >
+                  {item.name}
+                  {isActive && (
+                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-pink-500 rounded-full" />
+                  )}
+                </a>
+              )
+            })}
             
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className="ml-2 p-2 text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:bg-purple-500/10 rounded-lg transition-all duration-300"
+              className="ml-2 p-2 text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:bg-purple-500/10 rounded-lg transition-all duration-300 cursor-pointer flex items-center justify-center"
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? '☀️' : '🌙'}
+              {theme === 'dark' ? (
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  className="w-5 h-5"
+                >
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+                </svg>
+              ) : (
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  className="w-5 h-5"
+                >
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                </svg>
+              )}
             </button>
             
-            <a
-              href="/resume.pdf"
-              download
-              className="ml-4 px-6 py-2 resume-btn-gradient text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105"
-            >
-              Resume
-            </a>
+            {/* Paint Selector Dropdown Button */}
+            <div className="relative">
+              <button
+                onClick={() => setIsColorDropdownOpen(!isColorDropdownOpen)}
+                className="ml-4 p-2.5 bg-pink-500 text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105 flex items-center justify-center cursor-pointer border-none outline-none select-none"
+                aria-label="Choose Accent Color"
+                title={`Accent: ${accentColor}`}
+              >
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  className="w-5 h-5"
+                >
+                  <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/>
+                  <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/>
+                  <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>
+                  <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/>
+                  <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.63-.77 1.63-1.7 0-.45-.18-.85-.46-1.2-.29-.34-.47-.79-.47-1.27 0-1.1.9-2 2-2h1.7c5.5 0 10-4.1 10-9.6C22 5.2 17.5 2 12 2Z"/>
+                </svg>
+              </button>
+
+              {isColorDropdownOpen && (
+                <>
+                  {/* Invisible overlay to close dropdown */}
+                  <div 
+                    className="fixed inset-0 z-40" 
+                    onClick={() => setIsColorDropdownOpen(false)} 
+                  />
+                  
+                  {/* Floating Color Menu */}
+                  <div className="absolute right-0 mt-2 w-48 bg-navbar backdrop-blur-xl border border-border-color rounded-xl p-3 shadow-2xl z-50 flex flex-col gap-2">
+                    <span className="text-[10px] uppercase font-bold text-gray-400 px-1 tracking-wider">Choose Accent</span>
+                    <div className="grid grid-cols-4 gap-2">
+                      {accentOptions.map((opt) => (
+                        <button
+                          key={opt.name}
+                          onClick={() => {
+                            setAccentColor(opt.name)
+                            setIsColorDropdownOpen(false)
+                          }}
+                          className={`w-8 h-8 rounded-full cursor-pointer flex items-center justify-center border-2 transition-all duration-200 ${
+                            accentColor === opt.name 
+                              ? 'border-white scale-110 shadow-md' 
+                              : 'border-transparent hover:scale-105'
+                          } ${opt.colorClass}`}
+                          title={opt.name === 'default' ? 'Default Theme' : opt.name}
+                        >
+                          {accentColor === opt.name && (
+                            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -88,32 +220,88 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-navbar backdrop-blur-md">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-3 py-2 text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:bg-purple-500/10 rounded-lg transition-all duration-300"
-              >
-                {item.name}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href.slice(1)
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="relative block px-3 py-2 text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:bg-purple-500/10 rounded-lg transition-all duration-300"
+                >
+                  {isActive && (
+                    <span className="absolute left-1 top-1/2 -translate-y-1/2 w-1 h-4 bg-pink-500 rounded-full" />
+                  )}
+                  {item.name}
+                </a>
+              )
+            })}
             
             {/* Mobile Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="w-full text-left px-3 py-2 text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:bg-purple-500/10 rounded-lg transition-all duration-300"
+              className="w-full text-left px-3 py-2 text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:bg-purple-500/10 rounded-lg transition-all duration-300 flex items-center gap-2.5 cursor-pointer border-none outline-none select-none"
             >
-              {theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode'}
+              {theme === 'dark' ? (
+                <>
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    className="w-4 h-4"
+                  >
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+                  </svg>
+                  <span>Light Mode</span>
+                </>
+              ) : (
+                <>
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    className="w-4 h-4"
+                  >
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                  </svg>
+                  <span>Dark Mode</span>
+                </>
+              )}
             </button>
-            
-            <a
-              href="/resume.pdf"
-              download
-              className="block px-3 py-2 mt-2 resume-btn-gradient text-white rounded-lg text-center transition-all duration-300"
-            >
-              Download Resume
-            </a>
+
+            {/* Mobile Accent Selector Grid */}
+            <div className="px-3 py-2 space-y-2 border-t border-border-color mt-1">
+              <span className="text-xs text-gray-400 font-semibold uppercase tracking-wider block">Accent Color</span>
+              <div className="flex flex-wrap gap-2.5">
+                {accentOptions.map((opt) => (
+                  <button
+                    key={opt.name}
+                    onClick={() => setAccentColor(opt.name)}
+                    className={`w-8 h-8 rounded-full cursor-pointer flex items-center justify-center border-2 transition-all duration-200 ${
+                      accentColor === opt.name 
+                        ? 'border-white scale-110 shadow-md' 
+                        : 'border-transparent'
+                    } ${opt.colorClass}`}
+                    aria-label={opt.name}
+                  >
+                    {accentColor === opt.name && (
+                      <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       )}

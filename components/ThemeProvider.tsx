@@ -2,28 +2,58 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
-type Theme = 'dark' | 'light'
+export type Theme = 'dark' | 'light'
+export type AccentColor = 'default' | 'pink' | 'emerald' | 'cyan' | 'orange' | 'purple' | 'amber'
 
 interface ThemeContextType {
   theme: Theme
   toggleTheme: () => void
+  accentColor: AccentColor
+  setAccentColor: (color: AccentColor) => void
+  cycleAccentColor: () => void
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
+const accentColors: AccentColor[] = ['default', 'pink', 'emerald', 'cyan', 'orange', 'purple', 'amber']
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('dark')
-  const [mounted, setMounted] = useState(false)
+  const [accentColor, setAccentColor] = useState<AccentColor>('default')
 
   useEffect(() => {
-    setMounted(true)
-    // Check localStorage for saved theme preference
+    // 1. Load Theme
     const savedTheme = localStorage.getItem('theme') as Theme | null
-    if (savedTheme) {
+    if (savedTheme === 'light' || savedTheme === 'dark') {
       setTheme(savedTheme)
       document.documentElement.classList.toggle('light', savedTheme === 'light')
+    } else {
+      document.documentElement.classList.remove('light')
+    }
+
+    // 2. Load Accent Color
+    const savedAccent = localStorage.getItem('accentColor') as AccentColor | null
+    if (savedAccent && accentColors.includes(savedAccent)) {
+      setAccentColor(savedAccent)
+      applyAccentClass(savedAccent)
+    } else {
+      applyAccentClass('default')
     }
   }, [])
+
+  const applyAccentClass = (accent: AccentColor) => {
+    document.documentElement.classList.remove(
+      'accent-pink',
+      'accent-emerald',
+      'accent-cyan',
+      'accent-orange',
+      'accent-purple',
+      'accent-amber'
+    )
+    if (accent !== 'default') {
+      document.documentElement.classList.add(`accent-${accent}`)
+    }
+  }
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark'
@@ -32,8 +62,22 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.classList.toggle('light', newTheme === 'light')
   }
 
+  const handleSetAccentColor = (color: AccentColor) => {
+    setAccentColor(color)
+    localStorage.setItem('accentColor', color)
+    applyAccentClass(color)
+  }
+
+  const cycleAccentColor = () => {
+    const currentIndex = accentColors.indexOf(accentColor)
+    const nextIndex = (currentIndex + 1) % accentColors.length
+    const nextAccent = accentColors[nextIndex]
+    
+    handleSetAccentColor(nextAccent)
+  }
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, accentColor, setAccentColor: handleSetAccentColor, cycleAccentColor }}>
       {children}
     </ThemeContext.Provider>
   )

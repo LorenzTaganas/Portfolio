@@ -83,10 +83,11 @@ html {
   /* Cozy Dark Mode (Default) */
   --bg-primary: #2D2521;       /* Very dark espresso */
   --bg-secondary: #3D342E;     /* Deep espresso */
+  --bg-navbar: rgba(45, 37, 33, 0.85);
   --text-primary: #F5EBE6;     /* Soft Oatmeal Cream */
   --text-secondary: #C4B5A7;   /* Muted sand */
-  --accent-primary: #E4D5C7;   /* Sand accent */
-  --accent-secondary: #9C6644; /* Terracotta accent */
+  --accent-primary: #E4D5C7;   /* Default sand accent */
+  --accent-secondary: #9C6644; /* Default terracotta accent */
   --accent-text: #2D2521;      /* Espresso text on sand bg */
   --border-color: rgba(245, 235, 230, 0.15);
   --shadow-color: rgba(0, 0, 0, 0.4);
@@ -96,13 +97,51 @@ html.light {
   /* Warm Light Mode */
   --bg-primary: #F5EBE6;       /* Soft Cream/Oatmeal */
   --bg-secondary: #E4D5C7;     /* Warm Sand */
+  --bg-navbar: rgba(245, 235, 230, 0.85);
   --text-primary: #3D342E;     /* Deep Espresso */
   --text-secondary: #5C6B73;   /* Slate Blue/Grey */
-  --accent-primary: #9C6644;   /* Warm Terracotta */
-  --accent-secondary: #5C6B73; /* Slate Blue/Grey */
+  --accent-primary: #9C6644;   /* Default light Warm Terracotta */
+  --accent-secondary: #5C6B73; /* Default light Slate Blue/Grey */
   --accent-text: #F5EBE6;      /* Oatmeal cream text on terracotta bg */
   --border-color: rgba(61, 52, 46, 0.15);
   --shadow-color: rgba(61, 52, 46, 0.1);
+}
+
+/* Custom Accent Overrides */
+html.accent-pink {
+  --accent-primary: #FF79C6;
+  --accent-secondary: #8B5CF6;
+  --accent-text: #FFFFFF;
+}
+
+html.accent-emerald {
+  --accent-primary: #10B981;
+  --accent-secondary: #059669;
+  --accent-text: #FFFFFF;
+}
+
+html.accent-cyan {
+  --accent-primary: #06B6D4;
+  --accent-secondary: #0891B2;
+  --accent-text: #FFFFFF;
+}
+
+html.accent-orange {
+  --accent-primary: #F97316;
+  --accent-secondary: #EA580C;
+  --accent-text: #FFFFFF;
+}
+
+html.accent-purple {
+  --accent-primary: #8B5CF6;
+  --accent-secondary: #7C3AED;
+  --accent-text: #FFFFFF;
+}
+
+html.accent-amber {
+  --accent-primary: #F59E0B;
+  --accent-secondary: #D97706;
+  --accent-text: #111111;
 }
 
 html, body {
@@ -130,12 +169,8 @@ html, body {
 }
 
 .bg-navbar {
-  background-color: rgba(45, 37, 33, 0.85) !important;
+  background-color: var(--bg-navbar) !important;
   border-bottom: 1px solid var(--border-color);
-}
-
-html.light .bg-navbar {
-  background-color: rgba(245, 235, 230, 0.85) !important;
 }
 
 /* Base Utility Mapping to Custom Theme variables */
