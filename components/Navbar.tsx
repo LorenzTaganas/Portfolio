@@ -62,7 +62,7 @@ const Navbar = () => {
             <a
               href="/resume.pdf"
               download
-              className="ml-4 px-6 py-2 bg-pink-500 text-white rounded-lg hover:shadow-lg hover:shadow-pink-500/30 transition-all duration-300 transform hover:scale-105"
+              className="ml-4 px-6 py-2 resume-btn-gradient text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105"
             >
               Resume
             </a>
@@ -110,7 +110,7 @@ const Navbar = () => {
             <a
               href="/resume.pdf"
               download
-              className="block px-3 py-2 mt-2 bg-pink-500 text-white rounded-lg text-center"
+              className="block px-3 py-2 mt-2 resume-btn-gradient text-white rounded-lg text-center transition-all duration-300"
             >
               Download Resume
             </a>
