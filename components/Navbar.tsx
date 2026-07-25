@@ -86,6 +86,48 @@ const Navbar = () => {
     { name: 'Contact', href: '#contact' },
   ]
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    const targetId = href.replace('#', '')
+    const element = document.getElementById(targetId)
+    if (element) {
+      const navHeight = 70
+      const targetPosition = element.getBoundingClientRect().top + window.scrollY - navHeight
+      const startPosition = window.scrollY
+      const distance = targetPosition - startPosition
+      const duration = 750
+      let startTime: number | null = null
+
+      const easeInOutCubic = (t: number): number => {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
+      }
+
+      const animateScroll = (currentTime: number) => {
+        if (startTime === null) startTime = currentTime
+        const timeElapsed = currentTime - startTime
+        const progress = Math.min(timeElapsed / duration, 1)
+        const easeProgress = easeInOutCubic(progress)
+
+        window.scrollTo(0, startPosition + distance * easeProgress)
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animateScroll)
+        } else {
+          // Trigger section arrival highlight/pulse animation
+          element.classList.remove('section-active-pulse')
+          void element.offsetWidth
+          element.classList.add('section-active-pulse')
+          setTimeout(() => {
+            element.classList.remove('section-active-pulse')
+          }, 1000)
+        }
+      }
+
+      requestAnimationFrame(animateScroll)
+    }
+    setIsMobileMenuOpen(false)
+  }
+
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       isScrolled ? 'bg-navbar backdrop-blur-md shadow-md shadow-black/5' : 'bg-transparent'
@@ -93,7 +135,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#home" className="flex items-center space-x-2 group">
+          <a
+            href="#home"
+            onClick={(e) => handleNavClick(e, '#home')}
+            className="flex items-center space-x-2 group"
+          >
             <div className="w-10 h-10 bg-pink-500 rounded-lg flex items-center justify-center font-bold text-white group-hover:scale-110 transition-transform">
               L
             </div>
@@ -107,6 +153,7 @@ const Navbar = () => {
                 key={item.name}
                 ref={(el) => { itemRefs.current[index] = el }}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="relative px-4 py-2 text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:bg-purple-500/10 rounded-lg transition-all duration-300"
               >
                 {item.name}
@@ -252,7 +299,7 @@ const Navbar = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="relative block px-3 py-2 text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:bg-purple-500/10 rounded-lg transition-all duration-300"
                 >
                   {isActive && (

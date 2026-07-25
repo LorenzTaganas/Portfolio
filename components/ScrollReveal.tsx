@@ -23,7 +23,7 @@ export default function ScrollReveal({ children, className = '', delay = 0 }: Sc
         }
       },
       {
-        threshold: 0.1, // Trigger when 10% of the element is visible
+        threshold: 0.05,
       }
     )
 
@@ -39,10 +39,10 @@ export default function ScrollReveal({ children, className = '', delay = 0 }: Sc
   return (
     <div
       ref={ref}
-      className={`transition-all duration-1000 ease-out transform ${
+      className={`transition-all duration-700 ease-out transform ${
         isIntersecting 
           ? 'opacity-100 translate-y-0 scale-100' 
-          : 'opacity-0 translate-y-12 scale-98 pointer-events-none'
+          : 'opacity-0 translate-y-6 scale-98'
       } ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
@@ -50,3 +50,4 @@ export default function ScrollReveal({ children, className = '', delay = 0 }: Sc
     </div>
   )
 }
+
