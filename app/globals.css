@@ -157,26 +157,47 @@ html, body {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Hide scrollbar on the right side across all browsers while keeping scrolling functional */
-::-webkit-scrollbar,
-*::-webkit-scrollbar,
-::-webkit-scrollbar-thumb,
-*::-webkit-scrollbar-thumb,
-::-webkit-scrollbar-track,
-*::-webkit-scrollbar-track,
-::-webkit-scrollbar-button,
-*::-webkit-scrollbar-button {
-  display: none !important;
-  width: 0px !important;
-  height: 0px !important;
-  background: transparent !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
+/* Modern Default Neutral Scrollbar on the right (high-contrast neutral for Dark and Light mode) */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
 }
 
-html, body, :root {
-  -ms-overflow-style: none !important;  /* IE and Edge */
-  scrollbar-width: none !important;  /* Firefox */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(200, 200, 210, 0.4);
+  border-radius: 9999px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 200, 210, 0.7);
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(60, 50, 40, 0.45);
+  border-radius: 9999px;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(60, 50, 40, 0.75);
+}
+
+html, body {
+  -ms-overflow-style: auto !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(200, 200, 210, 0.4) transparent !important;
+}
+
+html.light {
+  scrollbar-color: rgba(60, 50, 40, 0.5) transparent !important;
 }
 
 /* Smooth section arrival pulse animation when navigating */

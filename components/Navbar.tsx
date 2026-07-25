@@ -68,7 +68,7 @@ const Navbar = () => {
     }
 
     const observer = new IntersectionObserver(handleIntersection, observerOptions)
-    
+
     const sections = ['home', 'about', 'projects', 'experience', 'contact']
     sections.forEach((id) => {
       const element = document.getElementById(id)
@@ -129,9 +129,8 @@ const Navbar = () => {
   }
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-navbar backdrop-blur-md shadow-md shadow-black/5' : 'bg-transparent'
-    }`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-navbar backdrop-blur-md shadow-md shadow-black/5' : 'bg-transparent'
+      }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -170,7 +169,7 @@ const Navbar = () => {
                 transition: 'left 0.35s cubic-bezier(0.4,0,0.2,1), width 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.25s ease',
               }}
             />
-            
+
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
@@ -178,35 +177,35 @@ const Navbar = () => {
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="w-5 h-5"
                 >
                   <circle cx="12" cy="12" r="4" />
                   <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
                 </svg>
               ) : (
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className="w-5 h-5"
                 >
                   <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
                 </svg>
               )}
             </button>
-            
+
             {/* Paint Selector Dropdown Button */}
             <div className="relative">
               <button
@@ -215,32 +214,23 @@ const Navbar = () => {
                 aria-label="Choose Accent Color"
                 title={`Accent: ${accentColor}`}
               >
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  className="w-5 h-5"
-                >
-                  <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/>
-                  <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/>
-                  <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>
-                  <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/>
-                  <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.63-.77 1.63-1.7 0-.45-.18-.85-.46-1.2-.29-.34-.47-.79-.47-1.27 0-1.1.9-2 2-2h1.7c5.5 0 10-4.1 10-9.6C22 5.2 17.5 2 12 2Z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-palette">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+                  <path d="M7.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                  <path d="M11.5 7.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                  <path d="M15.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
                 </svg>
               </button>
 
               {isColorDropdownOpen && (
                 <>
                   {/* Overlay to close dropdown */}
-                  <div 
-                    className="fixed inset-0 z-40" 
-                    onClick={() => setIsColorDropdownOpen(false)} 
+                  <div
+                    className="fixed inset-0 z-40"
+                    onClick={() => setIsColorDropdownOpen(false)}
                   />
-                  
+
                   {/* Horizontal Pill Palette Popup matching user screenshot */}
                   <div className="absolute right-0 mt-3 bg-[#181920]/95 backdrop-blur-xl border border-gray-700/60 rounded-2xl px-4 py-3 shadow-2xl z-50 flex items-center gap-3.5">
                     {accentOptions.map((opt) => {
@@ -252,11 +242,10 @@ const Navbar = () => {
                             setAccentColor(opt.name)
                             setIsColorDropdownOpen(false)
                           }}
-                          className={`w-6 h-6 rounded-full cursor-pointer transition-all duration-200 ${opt.colorClass} ${
-                            isSelected 
-                              ? 'ring-2 ring-white ring-offset-2 ring-offset-[#181920] scale-110 shadow-lg' 
-                              : 'opacity-85 hover:opacity-100 hover:scale-110'
-                          }`}
+                          className={`w-6 h-6 rounded-full cursor-pointer transition-all duration-200 ${opt.colorClass} ${isSelected
+                            ? 'ring-2 ring-white ring-offset-2 ring-offset-[#181920] scale-110 shadow-lg'
+                            : 'opacity-85 hover:opacity-100 hover:scale-110'
+                            }`}
                           title={opt.name}
                           aria-label={opt.name}
                         />
@@ -304,7 +293,7 @@ const Navbar = () => {
                 </a>
               )
             })}
-            
+
             {/* Mobile Theme Toggle */}
             <button
               onClick={toggleTheme}
@@ -312,14 +301,14 @@ const Navbar = () => {
             >
               {theme === 'dark' ? (
                 <>
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="w-4 h-4"
                   >
                     <circle cx="12" cy="12" r="4" />
@@ -329,14 +318,14 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="w-4 h-4"
                   >
                     <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
@@ -354,11 +343,10 @@ const Navbar = () => {
                   <button
                     key={opt.name}
                     onClick={() => setAccentColor(opt.name)}
-                    className={`w-8 h-8 rounded-full cursor-pointer flex items-center justify-center border-2 transition-all duration-200 ${
-                      accentColor === opt.name 
-                        ? 'border-white scale-110 shadow-md' 
-                        : 'border-transparent'
-                    } ${opt.colorClass}`}
+                    className={`w-8 h-8 rounded-full cursor-pointer flex items-center justify-center border-2 transition-all duration-200 ${accentColor === opt.name
+                      ? 'border-white scale-110 shadow-md'
+                      : 'border-transparent'
+                      } ${opt.colorClass}`}
                     aria-label={opt.name}
                   >
                     {accentColor === opt.name && (
