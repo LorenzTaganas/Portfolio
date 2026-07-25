@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
 export type Theme = 'dark' | 'light'
-export type AccentColor = 'default' | 'pink' | 'emerald' | 'cyan' | 'orange' | 'purple' | 'amber'
+export type AccentColor = 'green' | 'white' | 'blue' | 'red' | 'orange' | 'purple' | 'grey'
 
 interface ThemeContextType {
   theme: Theme
@@ -15,11 +15,11 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
-const accentColors: AccentColor[] = ['default', 'pink', 'emerald', 'cyan', 'orange', 'purple', 'amber']
+const accentColors: AccentColor[] = ['blue', 'green', 'white', 'red', 'orange', 'purple', 'grey']
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('dark')
-  const [accentColor, setAccentColor] = useState<AccentColor>('default')
+  const [accentColor, setAccentColor] = useState<AccentColor>('blue')
 
   useEffect(() => {
     // 1. Load Theme
@@ -37,22 +37,25 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       setAccentColor(savedAccent)
       applyAccentClass(savedAccent)
     } else {
-      applyAccentClass('default')
+      applyAccentClass('blue')
     }
   }, [])
 
   const applyAccentClass = (accent: AccentColor) => {
     document.documentElement.classList.remove(
+      'accent-green',
+      'accent-white',
+      'accent-blue',
+      'accent-red',
+      'accent-orange',
+      'accent-purple',
+      'accent-grey',
       'accent-pink',
       'accent-emerald',
       'accent-cyan',
-      'accent-orange',
-      'accent-purple',
       'accent-amber'
     )
-    if (accent !== 'default') {
-      document.documentElement.classList.add(`accent-${accent}`)
-    }
+    document.documentElement.classList.add(`accent-${accent}`)
   }
 
   const toggleTheme = () => {

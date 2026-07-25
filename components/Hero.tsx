@@ -110,7 +110,7 @@ const Hero = () => {
 
           {/* Picture Content */}
           <div className="md:col-span-5 flex justify-center order-1 md:order-2 animate-fade-in">
-            <div className="relative group w-64 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[400px]">
+            <div className="relative group w-64 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[400px] animate-float">
               {/* Outer Decorative Gradient Ring */}
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 opacity-30 blur-sm group-hover:opacity-75 transition duration-500 group-hover:duration-200" />
 

@@ -108,22 +108,28 @@ html.light {
   --shadow-color: rgba(61, 52, 46, 0.1);
 }
 
-/* Custom Accent Overrides */
-html.accent-pink {
-  --accent-primary: #FF79C6;
-  --accent-secondary: #8B5CF6;
-  --accent-text: #FFFFFF;
-}
-
-html.accent-emerald {
+/* Custom Accent Overrides - 1-to-1 match for palette dots */
+html.accent-green {
   --accent-primary: #10B981;
   --accent-secondary: #059669;
   --accent-text: #FFFFFF;
 }
 
-html.accent-cyan {
-  --accent-primary: #06B6D4;
-  --accent-secondary: #0891B2;
+html.accent-white {
+  --accent-primary: #FFFFFF;
+  --accent-secondary: #E5E7EB;
+  --accent-text: #111827;
+}
+
+html.accent-blue {
+  --accent-primary: #3B82F6;
+  --accent-secondary: #2563EB;
+  --accent-text: #FFFFFF;
+}
+
+html.accent-red {
+  --accent-primary: #EF4444;
+  --accent-secondary: #DC2626;
   --accent-text: #FFFFFF;
 }
 
@@ -139,10 +145,10 @@ html.accent-purple {
   --accent-text: #FFFFFF;
 }
 
-html.accent-amber {
-  --accent-primary: #F59E0B;
-  --accent-secondary: #D97706;
-  --accent-text: #111111;
+html.accent-grey {
+  --accent-primary: #6B7280;
+  --accent-secondary: #4B5563;
+  --accent-text: #FFFFFF;
 }
 
 html, body {

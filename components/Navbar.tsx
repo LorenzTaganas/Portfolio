@@ -13,13 +13,13 @@ const Navbar = () => {
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0 })
 
   const accentOptions = [
-    { name: 'default' as const, colorClass: 'bg-gradient-to-tr from-pink-500 via-purple-500 to-cyan-500' },
-    { name: 'pink' as const, colorClass: 'bg-[#FF79C6]' },
-    { name: 'emerald' as const, colorClass: 'bg-[#10B981]' },
-    { name: 'cyan' as const, colorClass: 'bg-[#06B6D4]' },
+    { name: 'green' as const, colorClass: 'bg-[#10B981]' },
+    { name: 'white' as const, colorClass: 'bg-[#FFFFFF]' },
+    { name: 'blue' as const, colorClass: 'bg-[#3B82F6]' },
+    { name: 'red' as const, colorClass: 'bg-[#EF4444]' },
     { name: 'orange' as const, colorClass: 'bg-[#F97316]' },
     { name: 'purple' as const, colorClass: 'bg-[#8B5CF6]' },
-    { name: 'amber' as const, colorClass: 'bg-[#F59E0B]' },
+    { name: 'grey' as const, colorClass: 'bg-[#6B7280]' },
   ]
 
   const [activeSection, setActiveSection] = useState('home')
@@ -211,7 +211,7 @@ const Navbar = () => {
             <div className="relative">
               <button
                 onClick={() => setIsColorDropdownOpen(!isColorDropdownOpen)}
-                className="ml-4 p-2.5 bg-pink-500 text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105 flex items-center justify-center cursor-pointer border-none outline-none select-none"
+                className="ml-1 p-2 text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-gray-900 hover:bg-purple-500/10 rounded-lg transition-all duration-300 flex items-center justify-center cursor-pointer border-none outline-none select-none"
                 aria-label="Choose Accent Color"
                 title={`Accent: ${accentColor}`}
               >
@@ -235,38 +235,33 @@ const Navbar = () => {
 
               {isColorDropdownOpen && (
                 <>
-                  {/* Invisible overlay to close dropdown */}
+                  {/* Overlay to close dropdown */}
                   <div 
                     className="fixed inset-0 z-40" 
                     onClick={() => setIsColorDropdownOpen(false)} 
                   />
                   
-                  {/* Floating Color Menu */}
-                  <div className="absolute right-0 mt-2 w-48 bg-navbar backdrop-blur-xl border border-border-color rounded-xl p-3 shadow-2xl z-50 flex flex-col gap-2">
-                    <span className="text-[10px] uppercase font-bold text-gray-400 px-1 tracking-wider">Choose Accent</span>
-                    <div className="grid grid-cols-4 gap-2">
-                      {accentOptions.map((opt) => (
+                  {/* Horizontal Pill Palette Popup matching user screenshot */}
+                  <div className="absolute right-0 mt-3 bg-[#181920]/95 backdrop-blur-xl border border-gray-700/60 rounded-2xl px-4 py-3 shadow-2xl z-50 flex items-center gap-3.5">
+                    {accentOptions.map((opt) => {
+                      const isSelected = accentColor === opt.name
+                      return (
                         <button
                           key={opt.name}
                           onClick={() => {
                             setAccentColor(opt.name)
                             setIsColorDropdownOpen(false)
                           }}
-                          className={`w-8 h-8 rounded-full cursor-pointer flex items-center justify-center border-2 transition-all duration-200 ${
-                            accentColor === opt.name 
-                              ? 'border-white scale-110 shadow-md' 
-                              : 'border-transparent hover:scale-105'
-                          } ${opt.colorClass}`}
-                          title={opt.name === 'default' ? 'Default Theme' : opt.name}
-                        >
-                          {accentColor === opt.name && (
-                            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                          )}
-                        </button>
-                      ))}
-                    </div>
+                          className={`w-6 h-6 rounded-full cursor-pointer transition-all duration-200 ${opt.colorClass} ${
+                            isSelected 
+                              ? 'ring-2 ring-white ring-offset-2 ring-offset-[#181920] scale-110 shadow-lg' 
+                              : 'opacity-85 hover:opacity-100 hover:scale-110'
+                          }`}
+                          title={opt.name}
+                          aria-label={opt.name}
+                        />
+                      )
+                    })}
                   </div>
                 </>
               )}
