@@ -28,6 +28,15 @@ const Projects = () => {
       demo: "#",
       icon: "📚",
       color: "bg-pink-500 text-[var(--accent-text)]"
+    },
+    {
+      title: "IT Helpdesk Ticketing System",
+      description: "Comprehensive system for managing IT helpdesk tickets and support requests",
+      tech: ["MongoDB", "Express.js", "React", "Node.js"],
+      github: "https://github.com/LorenzTaganas/IT-Helpdesk-System.git",
+      demo: "#",
+      icon: "🖥️",
+      color: "bg-pink-500 text-[var(--accent-text)]"
     }
   ]
 
