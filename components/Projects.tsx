@@ -16,6 +16,7 @@ interface Project {
   image: string
   progress: number
   status: 'Live' | 'Quiet' | 'Production' | 'Testing'
+  purpose: 'Capstone' | 'Personal' | 'Academic'
   metric: string
   features: string[]
 }
@@ -39,6 +40,7 @@ const Projects = () => {
       image: '/projects/arthub.jpg',
       progress: 98,
       status: 'Production',
+      purpose: 'Capstone',
       metric: '+99.2% Uptime',
       features: [
         'Secure multi-tier JWT authentication for buyers and verified artists',
@@ -62,6 +64,7 @@ const Projects = () => {
       image: '/projects/jam_master.jpg',
       progress: 100,
       status: 'Production',
+      purpose: 'Academic',
       metric: '60 FPS Target',
       features: [
         'Multi-lane beat detection engine synchronized to custom soundtracks',
@@ -85,6 +88,7 @@ const Projects = () => {
       image: '/projects/student_management.jpg',
       progress: 80,
       status: 'Production',
+      purpose: 'Academic',
       metric: '100% SLA',
       features: [
         'Role-based access control for Administrators, Instructors, and Students',
@@ -108,6 +112,7 @@ const Projects = () => {
       image: '/projects/it_helpdesk.jpg',
       progress: 25,
       status: 'Live',
+      purpose: 'Personal',
       metric: '94% SLA Met',
       features: [
         'Automated ticket prioritization matrix (Critical, High, Medium, Low)',
@@ -212,6 +217,9 @@ const Projects = () => {
                   <div className="flex items-center gap-1.5">
                     <span className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider bg-sky-50 dark:bg-white/[0.04] border border-sky-200 dark:border-white/[0.08] text-sky-700 dark:text-sky-300 font-medium">
                       {project.status}
+                    </span>
+                    <span className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider bg-sky-50 dark:bg-white/[0.04] border border-sky-200 dark:border-white/[0.08] text-sky-700 dark:text-sky-300 font-medium">
+                      {project.purpose}
                     </span>
                     <span className="px-2 py-1 rounded-md text-[10px] font-mono tracking-wider text-gray-500 dark:text-gray-400 bg-black/[0.03] dark:bg-white/[0.02]">
                       {project.metric}
