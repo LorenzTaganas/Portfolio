@@ -37,8 +37,8 @@ const Projects = () => {
       tech: ['MongoDB', 'Express.js', 'React', 'Node.js', 'TailwindCSS'],
       github: 'https://github.com/LorenzTaganas/Arthubb',
       image: '/projects/arthub.jpg',
-      progress: 94,
-      status: 'Live',
+      progress: 98,
+      status: 'Production',
       metric: '+99.2% Uptime',
       features: [
         'Secure multi-tier JWT authentication for buyers and verified artists',
@@ -60,7 +60,7 @@ const Projects = () => {
       tech: ['Java', 'Android SDK', 'Firebase', 'Mobile Game Engine'],
       github: 'https://github.com/LorenzTaganas/Jam-Master-Mobile-app',
       image: '/projects/jam_master.jpg',
-      progress: 98,
+      progress: 100,
       status: 'Production',
       metric: '60 FPS Target',
       features: [
@@ -83,7 +83,7 @@ const Projects = () => {
       tech: ['Python', 'Django', 'SQLite', 'Chart.js', 'Bootstrap'],
       github: 'https://github.com/LorenzTaganas/StudentManagementSystem',
       image: '/projects/student_management.jpg',
-      progress: 100,
+      progress: 80,
       status: 'Production',
       metric: '100% SLA',
       features: [
@@ -106,7 +106,7 @@ const Projects = () => {
       tech: ['MongoDB', 'Express.js', 'React', 'Node.js', 'REST API'],
       github: 'https://github.com/LorenzTaganas/IT-Helpdesk-System.git',
       image: '/projects/it_helpdesk.jpg',
-      progress: 92,
+      progress: 25,
       status: 'Live',
       metric: '94% SLA Met',
       features: [

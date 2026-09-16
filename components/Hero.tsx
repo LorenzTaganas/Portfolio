@@ -3,12 +3,13 @@
 import React, { useState, useEffect } from 'react'
 
 const roles = [
-  'Full Stack Engineer',
+  'Full Stack Developer',
   'Frontend Specialist',
   'Backend Architect',
   'Mobile Developer',
-  'Quality Assurance Engineer',
+  'Quality Assurance Specialist',
   'Salesforce Developer',
+  'Network Engineer',
 ]
 
 const Hero = () => {
@@ -70,7 +71,7 @@ const Hero = () => {
             {/* Eyebrow with dash */}
             <div className="flex items-center gap-3 font-mono text-xs tracking-widest text-gray-400 uppercase mb-5 animate-fade-in">
               <span className="w-6 h-[1px] bg-gray-500" />
-              <span>FULL STACK ENGINEER & QA SPECIALIST</span>
+              <span>DEVELOPER & QA SPECIALIST</span>
             </div>
 
             {/* Huge Display Heading */}
@@ -169,10 +170,10 @@ const Hero = () => {
 
               {/* Specimen Info */}
               <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
-                Software Engineer · Quality Lead
+                Software Developer · Quality Lead
               </h3>
               <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mt-2 font-light">
-                Specialized in full-stack web and mobile engineering, automated QA verification, and enterprise system reliability.
+                Specialized in full-stack web and mobile systems, automated QA verification, and enterprise system reliability.
               </p>
 
               {/* Progress Bar from Screenshot */}
