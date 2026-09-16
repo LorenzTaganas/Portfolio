@@ -7,7 +7,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
   return (
-    <main className="relative mx-auto flex w-full flex-col overflow-hidden bg-black light:bg-white">
+    <main className="relative mx-auto flex w-full flex-col overflow-hidden">
       <Hero />
       <ScrollReveal delay={150}>
         <About />

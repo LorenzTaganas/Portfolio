@@ -3,13 +3,12 @@
 import React, { useState, useEffect } from 'react'
 
 const roles = [
-  'Full Stack Developer',
-  'Frontend Developer',
-  'Backend Developer',
+  'Full Stack Engineer',
+  'Frontend Specialist',
+  'Backend Architect',
   'Mobile Developer',
-  'UI/UX Designer',
+  'Quality Assurance Engineer',
   'Salesforce Developer',
-  'Software Tester',
 ]
 
 const Hero = () => {
@@ -24,13 +23,16 @@ const Hero = () => {
 
     if (!isDeleting && charIndex <= target.length) {
       setDisplayed(target.slice(0, charIndex))
-      timeout = setTimeout(() => setCharIndex((c) => c + 1), charIndex === target.length ? 1800 : 75)
+      timeout = setTimeout(
+        () => setCharIndex((c) => c + 1),
+        charIndex === target.length ? 2200 : 70
+      )
       if (charIndex === target.length) {
-        timeout = setTimeout(() => setIsDeleting(true), 1800)
+        timeout = setTimeout(() => setIsDeleting(true), 2200)
       }
     } else if (isDeleting && charIndex >= 0) {
       setDisplayed(target.slice(0, charIndex))
-      timeout = setTimeout(() => setCharIndex((c) => c - 1), 40)
+      timeout = setTimeout(() => setCharIndex((c) => c - 1), 35)
       if (charIndex === 0) {
         setIsDeleting(false)
         setCurrentRole((r) => (r + 1) % roles.length)
@@ -44,113 +46,178 @@ const Hero = () => {
     e.preventDefault()
     const element = document.getElementById(targetId)
     if (element) {
-      const navHeight = 70
+      const navHeight = 75
       const elementPosition = element.getBoundingClientRect().top + window.scrollY
-      const offsetPosition = elementPosition - navHeight
       window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
+        top: elementPosition - navHeight,
+        behavior: 'smooth',
       })
     }
   }
 
   return (
-    <section id="home" className="relative w-full px-4 pt-28 pb-12 overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
+    <section
+      id="home"
+      className="relative w-full min-h-[92vh] flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden tech-grid-bg"
+    >
+      {/* Ambient Horizon Backlight */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[380px] bg-gradient-to-b from-sky-500/10 via-sky-500/5 to-transparent rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="mx-auto flex min-h-[calc(100vh-10rem)] w-full max-w-6xl flex-col items-center justify-between">
-        <div className="grid md:grid-cols-12 gap-12 items-center w-full my-auto">
+      <div className="relative max-w-6xl w-full mx-auto z-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left Column: Display Typography mirroring reference screenshot */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
+            {/* Eyebrow with dash */}
+            <div className="flex items-center gap-3 font-mono text-xs tracking-widest text-gray-400 uppercase mb-5 animate-fade-in">
+              <span className="w-6 h-[1px] bg-gray-500" />
+              <span>FULL STACK ENGINEER & QA SPECIALIST</span>
+            </div>
 
-          {/* Text Content */}
-          <div className="md:col-span-7 text-center md:text-left flex flex-col items-center md:items-start order-2 md:order-1">
-            <h1 className="text-4xl font-bold tracking-tight text-white light:text-gray-900 sm:text-5xl md:text-6xl lg:text-7xl animate-slide-up leading-tight">
-              Hi, I&apos;m <span className="text-pink-500">Lorenz</span>
+            {/* Huge Display Heading */}
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.05] animate-slide-up">
+              Lorenz
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-950 via-slate-800 to-sky-600 dark:from-white dark:via-slate-200 dark:to-sky-300">
+                Taganas.
+              </span>
             </h1>
 
-            {/* Typewriter Role */}
-            <p className="mt-4 text-xl text-gray-300 md:text-2xl animate-slide-up font-medium flex items-center flex-wrap gap-x-2">
-              <span>I am a</span>
-              <span className="text-pink-400">{displayed}</span>
-              <span className="inline-block w-0.5 h-6 bg-pink-400 animate-blink-cursor" />
+            {/* Typewriter Role Line */}
+            <div className="mt-5 flex items-center gap-2 font-mono text-base sm:text-lg text-slate-800 dark:text-gray-300">
+              <span className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm uppercase tracking-wider">
+                ACTIVE FOCUS ·
+              </span>
+              <span className="text-sky-600 dark:text-sky-400 font-semibold tracking-wide">
+                {displayed}
+              </span>
+              <span className="w-1.5 h-4 bg-sky-600 dark:bg-sky-400 animate-blink-cursor" />
+            </div>
+
+            {/* Sub-chromatic System Description */}
+            <p className="mt-6 text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-400 max-w-xl font-light">
+              Building full-stack digital products and enterprise software systems. Bridging robust software engineering with meticulous Quality Assurance testing, clean architecture, and precision design.
             </p>
 
-            <p className="mt-6 text-base sm:text-lg leading-relaxed text-gray-400 light:text-gray-600 max-w-xl">
-              Building full-stack applications and ensuring software quality through comprehensive testing.
-            </p>
+            {/* Telemetry Tag Rack */}
+            <div className="mt-6 flex flex-wrap items-center gap-2.5 font-mono text-[11px]">
+              <span className="px-3 py-1 rounded-md bg-black/[0.04] dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/[0.08] text-gray-700 dark:text-gray-300">
+                ● FULL STACK
+              </span>
+              <span className="px-3 py-1 rounded-md bg-black/[0.04] dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/[0.08] text-gray-700 dark:text-gray-300">
+                ● QA AUTOMATION
+              </span>
+              <span className="px-3 py-1 rounded-md bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400">
+                ● OPEN TO ROLES
+              </span>
+            </div>
 
-            {/* CTAs */}
-            <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4 animate-fade-in w-full">
+            {/* Action Buttons */}
+            <div className="mt-8 flex flex-wrap items-center gap-3.5 w-full sm:w-auto">
               <a
                 href="#projects"
                 onClick={(e) => scrollToSection(e, 'projects')}
-                className="group rounded-lg bg-pink-500 px-6 py-3 font-medium text-white transition-all duration-300 hover:bg-pink-400 hover:shadow-lg hover:shadow-pink-500/30 transform hover:scale-105"
+                className="flex items-center gap-2.5 px-6 py-3 rounded-lg bg-white text-black font-mono text-xs font-semibold tracking-wider hover:bg-sky-200 transition-all duration-300 shadow-[0_0_25px_rgba(255,255,255,0.2)] hover:scale-[1.02]"
               >
-                <span className="flex items-center gap-2">
-                  View My Work
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </span>
+                <span>EXPLORE WORK</span>
+                <span>→</span>
               </a>
+
               <a
                 href="#contact"
                 onClick={(e) => scrollToSection(e, 'contact')}
-                className="group rounded-lg border-2 border-purple-500 px-6 py-3 font-medium text-purple-300 transition-all duration-300 hover:bg-purple-500 transform hover:scale-105"
+                className="flex items-center gap-2 px-6 py-3 rounded-lg bg-white/[0.04] border border-white/[0.12] text-white font-mono text-xs tracking-wider hover:bg-white/[0.08] hover:border-white/30 transition-all duration-300"
               >
-                Contact Me
+                <span>INITIATE CONTACT</span>
               </a>
+
               <a
                 href="/resume.pdf"
                 download
-                className="group rounded-lg border-2 border-purple-500 px-6 py-3 font-medium text-purple-300 transition-all duration-300 hover:bg-purple-500/10 transform hover:scale-105"
+                className="flex items-center gap-2 px-5 py-3 rounded-lg bg-white/[0.02] border border-white/[0.08] text-gray-400 hover:text-white font-mono text-xs tracking-wider hover:bg-white/[0.06] transition-all duration-300"
               >
-                <span className="flex items-center gap-2">📄 Resume</span>
+                <span>DOSSIER (CV) ↗</span>
               </a>
             </div>
           </div>
 
-          {/* Picture Content */}
-          <div className="md:col-span-5 flex justify-center order-1 md:order-2 animate-fade-in">
-            <div className="relative group w-64 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[400px] animate-float">
-              {/* Outer Decorative Gradient Ring */}
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 opacity-30 blur-sm group-hover:opacity-75 transition duration-500 group-hover:duration-200" />
+          {/* Right Column: Specimen Horizon Panel matching reference image */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            <div className="horizon-panel w-full max-w-md rounded-2xl p-6 sm:p-7 border border-white/[0.1] shadow-2xl">
+              {/* Header */}
+              <div className="flex items-center justify-between font-mono text-[11px] text-gray-400 tracking-wider mb-5">
+                <span className="uppercase tracking-widest text-gray-400">HORIZON SPECIMEN</span>
+                <span className="w-2 h-2 rounded-full bg-sky-400 beacon-online shadow-[0_0_8px_#38bdf8]" />
+              </div>
 
-              {/* Floating accent background glow */}
-              <div className="absolute -inset-4 bg-gradient-to-tr from-pink-500/10 to-purple-500/10 rounded-3xl blur-xl opacity-50 group-hover:opacity-80 transition duration-500" />
-
-              {/* Main Image Wrapper */}
-              <div className="relative w-full h-full rounded-2xl overflow-hidden border border-purple-500/20 bg-gray-900 shadow-2xl transition duration-500 transform group-hover:scale-[1.02] group-hover:rotate-1">
+              {/* Picture Frame with Hairline Inset Rim */}
+              <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-white/[0.12] bg-[#0c0e14] mb-5 group">
                 <img
                   src="/profile.jpg"
                   alt="Lorenz Taganas Portrait"
-                  className="w-full h-full object-cover object-top transition duration-500 filter brightness-95 group-hover:brightness-100"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105 filter brightness-95 group-hover:brightness-100"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#11141c] via-transparent to-transparent opacity-75" />
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] text-white/90">
+                  <span className="bg-black/60 backdrop-blur-md px-2 py-0.5 rounded border border-white/10">
+                    ID: LT-2026
+                  </span>
+                  <span className="bg-black/60 backdrop-blur-md px-2 py-0.5 rounded border border-white/10 text-emerald-400">
+                    ● QA TESTED
+                  </span>
+                </div>
+              </div>
 
-                {/* Overlay Vignette */}
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-950/40 via-transparent to-transparent pointer-events-none" />
+              {/* Specimen Info */}
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
+                Software Engineer · Quality Lead
+              </h3>
+              <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mt-2 font-light">
+                Specialized in full-stack web and mobile engineering, automated QA verification, and enterprise system reliability.
+              </p>
+
+              {/* Progress Bar from Screenshot */}
+              <div className="mt-5 pt-4 border-t border-black/[0.08] dark:border-white/[0.08]">
+                <div className="flex items-center justify-between font-mono text-[11px] text-gray-500 dark:text-gray-400 mb-2">
+                  <span className="uppercase tracking-widest text-gray-500">SYSTEM READINESS</span>
+                  <span className="text-slate-900 dark:text-white font-medium">98 / 100</span>
+                </div>
+                <div className="w-full h-1.5 rounded-full bg-black/[0.08] dark:bg-white/[0.08] overflow-hidden mb-4">
+                  <div className="h-full w-[98%] bg-gradient-to-r from-sky-500 to-sky-400 dark:from-sky-400 dark:to-white rounded-full" />
+                </div>
+
+                {/* Pill Toggles from Screenshot: Live / Quiet / Idle */}
+                <div className="flex items-center justify-between font-mono text-[10px]">
+                  <div className="flex items-center gap-1.5">
+                    <span className="px-2.5 py-1 rounded-md bg-black/[0.06] dark:bg-white/[0.08] text-slate-900 dark:text-white border border-black/10 dark:border-white/15">
+                      Live
+                    </span>
+                    <span className="px-2.5 py-1 rounded-md text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300">
+                      Quiet
+                    </span>
+                    <span className="px-2.5 py-1 rounded-md text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300">
+                      Idle
+                    </span>
+                  </div>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-medium">+04.6% ACCURACY</span>
+                </div>
               </div>
             </div>
           </div>
-
         </div>
 
-        {/* Scrollable Indicator Mark (Non-clickable visual mark) */}
-        <div className="mt-8 pt-4 flex justify-center animate-fade-in pointer-events-none select-none">
-          <div className="flex flex-col items-center gap-2 opacity-80">
-            <span className="text-xs font-semibold uppercase tracking-widest text-pink-400">
-              Scroll Down
-            </span>
-            {/* Animated Mouse & Chevron Icon */}
-            <div className="relative w-6 h-10 rounded-full border-2 border-pink-400/60 flex justify-center p-1.5">
-              <div className="w-1.5 h-2.5 bg-pink-400 rounded-full animate-bounce" />
-            </div>
-            <svg
-              className="w-4 h-4 text-pink-400 animate-pulse"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
+        {/* Bottom Technical Telemetry Specimen strip */}
+        <div className="mt-16 pt-6 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-4 font-mono text-[10px] text-gray-500 uppercase tracking-widest select-none">
+          <div className="flex items-center gap-4">
+            <span>RADIAL SURFACE</span>
+            <span>·</span>
+            <span>1PX INSET RIM</span>
+            <span>·</span>
+            <span>70% HORIZON</span>
+            <span>·</span>
+            <span>RADIUS 7 / 14</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <span>EASE · CUBIC-BEZIER(.15,.83,.66,1)</span>
           </div>
         </div>
       </div>
@@ -159,4 +226,3 @@ const Hero = () => {
 }
 
 export default Hero
-

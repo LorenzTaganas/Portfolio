@@ -42,55 +42,65 @@ const Experience = () => {
   ]
 
   return (
-    <section id="experience" className="py-20 px-4 bg-black">
+    <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            My <span className="text-pink-400">Journey</span>
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center mb-16">
+          <div className="telemetry-pill mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-sky-500 dark:bg-sky-400" />
+            <span>CHRONOLOGY · CAREER ROADMAP</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
+            Professional <span className="text-sky-600 dark:text-sky-400">Journey</span>
           </h2>
-          <p className="text-gray-500">Experience & Education</p>
+          <p className="text-gray-600 dark:text-gray-400 max-w-xl text-sm sm:text-base font-light">
+            Verified milestones across industry internships, academic projects, and engineering education.
+          </p>
         </div>
 
         {/* Experience Timeline */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-2">
-            <span className="text-3xl">💼</span>
-            Professional Experience
-          </h3>
-          <div className="space-y-8">
+          <div className="flex items-center gap-3 mb-8 font-mono text-sm tracking-wider text-slate-900 dark:text-white">
+            <span className="w-2 h-2 rounded-full bg-sky-500 dark:bg-sky-400 shadow-[0_0_6px_#38bdf8]" />
+            <span className="uppercase font-semibold">DEV & QA EXPERIENCES</span>
+          </div>
+
+          <div className="space-y-6">
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className="group relative bg-gray-900 rounded-2xl p-6 md:p-8 border border-gray-800 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl"
+                className="horizon-panel group rounded-2xl p-6 md:p-8 border border-slate-200/80 dark:border-white/[0.08]"
               >
-                {/* Timeline dot */}
-                <div className="absolute -left-3 top-8 w-6 h-6 bg-pink-500 rounded-full border-4 border-gray-950 hidden md:block"></div>
-
-                <div className="flex flex-col md:flex-row md:items-start gap-4">
-                  {/* Icon */}
-                  <div className={`w-16 h-16 rounded-xl flex items-center justify-center text-3xl shrink-0 group-hover:scale-110 transition-transform ${exp.color}`}>
+                <div className="flex flex-col md:flex-row md:items-start gap-5">
+                  {/* Icon Frame */}
+                  <div className="w-14 h-14 rounded-xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.1] flex items-center justify-center text-2xl shrink-0 group-hover:border-sky-500/40 dark:group-hover:border-sky-400/40 transition-colors shadow-inner">
                     {exp.icon}
                   </div>
 
                   {/* Content */}
                   <div className="flex-1">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                      <h4 className="text-xl font-semibold text-white group-hover:text-pink-400 transition-colors">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 mb-2">
+                      <h4 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-300 transition-colors tracking-tight">
                         {exp.title}
                       </h4>
-                      <span className="text-purple-400 text-sm font-medium">
+                      <span className="font-mono text-xs text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-400/10 px-2.5 py-0.5 rounded border border-sky-200 dark:border-sky-400/20 w-fit font-medium">
                         {exp.period}
                       </span>
                     </div>
-                    <p className="text-gray-400 font-medium mb-3">{exp.company}</p>
-                    <p className="text-gray-300 mb-4 leading-relaxed">{exp.description}</p>
 
-                    {/* Skills */}
+                    <p className="font-mono text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">
+                      {exp.company}
+                    </p>
+                    <p className="text-slate-700 dark:text-gray-300 mb-5 leading-relaxed text-sm font-light">
+                      {exp.description}
+                    </p>
+
+                    {/* Skills pills */}
                     <div className="flex flex-wrap gap-2">
                       {exp.skills.map((skill, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-purple-500/10 border border-purple-500/30 rounded-full text-purple-400 text-xs font-medium"
+                          className="px-2.5 py-1 bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08] rounded-md text-slate-700 dark:text-gray-300 font-mono text-[11px]"
                         >
                           {skill}
                         </span>
@@ -103,32 +113,37 @@ const Experience = () => {
           </div>
         </div>
 
-        {/* Education */}
+        {/* Education Section */}
         <div>
-          <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-2">
-            <span className="text-3xl">🎓</span>
-            Education
-          </h3>
+          <div className="flex items-center gap-3 mb-8 font-mono text-sm tracking-wider text-slate-900 dark:text-white">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 shadow-[0_0_6px_#34d399]" />
+            <span className="uppercase font-semibold">ACADEMIC CREDENTIALS</span>
+          </div>
+
           {education.map((edu, index) => (
             <div
               key={index}
-              className="bg-gray-900 rounded-2xl p-6 md:p-8 border border-gray-800 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl"
+              className="horizon-panel rounded-2xl p-6 md:p-8 border border-slate-200/80 dark:border-white/[0.08]"
             >
-              <div className="flex items-start gap-4">
-                <div className="w-16 h-16 bg-pink-500 rounded-xl flex items-center justify-center text-3xl shrink-0 text-[var(--accent-text)]">
+              <div className="flex flex-col md:flex-row items-start gap-5">
+                <div className="w-14 h-14 rounded-xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.1] flex items-center justify-center text-2xl shrink-0 shadow-inner">
                   {edu.icon}
                 </div>
                 <div className="flex-1">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                    <h4 className="text-xl font-semibold text-white">{edu.degree}</h4>
-                    <span className="text-purple-400 text-sm font-medium">{edu.period}</span>
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 mb-2">
+                    <h4 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">{edu.degree}</h4>
+                    <span className="font-mono text-xs text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-400/10 px-2.5 py-0.5 rounded border border-emerald-200 dark:border-emerald-400/20 w-fit font-medium">
+                      {edu.period}
+                    </span>
                   </div>
-                  <p className="text-gray-400 font-medium mb-3">{edu.school}</p>
+                  <p className="font-mono text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-4">
+                    {edu.school}
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {edu.highlights.map((highlight, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 bg-purple-500/10 border border-purple-500/30 rounded-full text-purple-400 text-xs font-medium"
+                        className="px-2.5 py-1 bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08] rounded-md text-slate-700 dark:text-gray-300 font-mono text-[11px]"
                       >
                         {highlight}
                       </span>

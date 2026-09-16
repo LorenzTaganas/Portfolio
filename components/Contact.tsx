@@ -61,35 +61,41 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 px-4 bg-gray-950">
+    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Get In <span className="text-pink-400">Touch</span>
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center mb-16">
+          <div className="telemetry-pill mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-sky-500 dark:bg-sky-400" />
+            <span>COMMUNICATION CHANNEL · OPEN</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
+            Initiate <span className="text-sky-600 dark:text-sky-400">Contact</span>
           </h2>
-          <p className="text-gray-500">Let&apos;s work together on your next project</p>
+          <p className="text-gray-600 dark:text-gray-400 max-w-xl text-sm sm:text-base font-light">
+            Available for full stack engineering roles, QA automation opportunities, and technical projects.
+          </p>
         </div>
 
-        <div className="bg-gray-900 rounded-2xl p-8 border border-gray-800 shadow-2xl">
-          <p className="text-gray-400 text-center mb-10 leading-relaxed">
-            I&apos;m currently open to new opportunities and collaborations.
-            Feel free to reach out if you&apos;d like to work together!
+        <div className="horizon-panel rounded-2xl p-7 sm:p-10 border border-slate-200/80 dark:border-white/[0.1] shadow-2xl">
+          <p className="text-slate-700 dark:text-gray-300 text-center mb-10 leading-relaxed font-light text-sm sm:text-base">
+            Have a project in mind or interested in collaboration? Dispatch an inquiry directly below or connect through verified channels.
           </p>
 
           {/* Social Cards */}
-          <div className="grid md:grid-cols-3 gap-6 mb-10">
+          <div className="grid sm:grid-cols-3 gap-4 mb-10">
             {/* Facebook Card */}
             <a
               href="https://www.facebook.com/Lelstrike1"
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-purple-500/10 p-6 rounded-xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 flex flex-col items-center text-center"
+              className="group bg-slate-50 dark:bg-white/[0.02] p-5 rounded-xl border border-slate-200 dark:border-white/[0.08] hover:border-sky-500/40 dark:hover:border-white/25 transition-all duration-300 hover:shadow-md flex flex-col items-center text-center"
             >
-              <div className="text-purple-300 mb-3 group-hover:scale-110 transition-transform">
-                <FacebookIcon className="w-10 h-10" />
+              <div className="text-slate-700 dark:text-gray-300 group-hover:text-sky-600 dark:group-hover:text-sky-400 mb-2.5 group-hover:scale-110 transition-transform">
+                <FacebookIcon className="w-7 h-7" />
               </div>
-              <h3 className="text-white font-semibold mb-2 text-lg">Facebook</h3>
-              <p className="text-gray-400 group-hover:text-pink-400 transition-colors text-sm">
+              <h3 className="text-slate-900 dark:text-white font-mono text-xs uppercase tracking-wider mb-1">Facebook</h3>
+              <p className="text-gray-500 dark:text-gray-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors text-xs font-light">
                 Lorenz Taganas
               </p>
             </a>
@@ -99,13 +105,13 @@ const Contact = () => {
               href="https://www.linkedin.com/in/lorenz-taganas-bb4b25292/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-purple-500/10 p-6 rounded-xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 flex flex-col items-center text-center"
+              className="group bg-slate-50 dark:bg-white/[0.02] p-5 rounded-xl border border-slate-200 dark:border-white/[0.08] hover:border-sky-500/40 dark:hover:border-white/25 transition-all duration-300 hover:shadow-md flex flex-col items-center text-center"
             >
-              <div className="text-purple-300 mb-3 group-hover:scale-110 transition-transform">
-                <LinkedInIcon className="w-10 h-10" />
+              <div className="text-slate-700 dark:text-gray-300 group-hover:text-sky-600 dark:group-hover:text-sky-400 mb-2.5 group-hover:scale-110 transition-transform">
+                <LinkedInIcon className="w-7 h-7" />
               </div>
-              <h3 className="text-white font-semibold mb-2 text-lg">LinkedIn</h3>
-              <p className="text-gray-400 group-hover:text-pink-400 transition-colors text-sm">
+              <h3 className="text-slate-900 dark:text-white font-mono text-xs uppercase tracking-wider mb-1">LinkedIn</h3>
+              <p className="text-gray-500 dark:text-gray-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors text-xs font-light">
                 Lorenz Taganas
               </p>
             </a>
@@ -115,90 +121,90 @@ const Contact = () => {
               href="https://github.com/LorenzTaganas"
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-purple-500/10 p-6 rounded-xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 flex flex-col items-center text-center"
+              className="group bg-slate-50 dark:bg-white/[0.02] p-5 rounded-xl border border-slate-200 dark:border-white/[0.08] hover:border-sky-500/40 dark:hover:border-white/25 transition-all duration-300 hover:shadow-md flex flex-col items-center text-center"
             >
-              <div className="text-purple-300 mb-3 group-hover:scale-110 transition-transform">
-                <GitHubIcon className="w-10 h-10" />
+              <div className="text-slate-700 dark:text-gray-300 group-hover:text-sky-600 dark:group-hover:text-sky-400 mb-2.5 group-hover:scale-110 transition-transform">
+                <GitHubIcon className="w-7 h-7" />
               </div>
-              <h3 className="text-white font-semibold mb-2 text-lg">GitHub</h3>
-              <p className="text-gray-400 group-hover:text-pink-400 transition-colors text-sm">
+              <h3 className="text-slate-900 dark:text-white font-mono text-xs uppercase tracking-wider mb-1">GitHub</h3>
+              <p className="text-gray-500 dark:text-gray-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors text-xs font-light">
                 @LorenzTaganas
               </p>
             </a>
           </div>
 
           {/* Contact Form */}
-          <div className="border-t border-gray-800 pt-10">
-            <h3 className="text-white font-semibold text-xl text-center mb-6">
-              Send me an email ✉️
+          <div className="border-t border-slate-200 dark:border-white/[0.08] pt-8">
+            <h3 className="text-slate-700 dark:text-gray-400 font-mono text-xs uppercase tracking-widest text-center mb-6">
+              DISPATCH DIRECT TRANSMISSION
             </h3>
 
             {formState === 'success' ? (
-              <div className="flex flex-col items-center gap-4 py-8">
-                <div className="w-16 h-16 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center text-3xl">
-                  ✅
+              <div className="flex flex-col items-center gap-3 py-8">
+                <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                  ✓
                 </div>
-                <p className="text-green-400 font-semibold text-lg">Message sent!</p>
-                <p className="text-gray-400 text-sm text-center">
-                  Thanks for reaching out. I&apos;ll get back to you as soon as possible.
+                <p className="text-emerald-600 dark:text-emerald-400 font-mono text-sm tracking-wider uppercase">Message Transmitted Successfully</p>
+                <p className="text-gray-500 dark:text-gray-400 text-xs text-center font-light">
+                  Thank you for reaching out. I will respond to your transmission shortly.
                 </p>
                 <button
                   onClick={() => setFormState('idle')}
-                  className="mt-2 text-pink-400 hover:text-pink-300 text-sm underline underline-offset-4 transition-colors"
+                  className="mt-2 text-sky-600 dark:text-sky-400 hover:text-slate-900 dark:hover:text-white font-mono text-xs underline underline-offset-4 transition-colors"
                 >
                   Send another message
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid md:grid-cols-2 gap-5">
-                  <div className="flex flex-col gap-2">
-                    <label htmlFor="contact-name" className="text-gray-400 text-sm font-medium">
-                      Your Name
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="contact-name" className="font-mono text-xs text-slate-700 dark:text-gray-400 uppercase tracking-wider font-medium dark:font-normal">
+                      Sender Name
                     </label>
                     <input
                       id="contact-name"
                       type="text"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      placeholder="John Doe"
+                      placeholder="e.g. Alex Mercer"
                       required
-                      className="bg-gray-800 border border-gray-700 text-white placeholder-gray-600 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500/40 transition-colors"
+                      className="bg-slate-50 dark:bg-white/[0.02] border border-slate-300 dark:border-white/[0.08] focus:border-sky-500 dark:focus:border-sky-400 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-600 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-sky-500/30 transition-all font-light"
                     />
                   </div>
-                  <div className="flex flex-col gap-2">
-                    <label htmlFor="contact-email" className="text-gray-400 text-sm font-medium">
-                      Your Email
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="contact-email" className="font-mono text-xs text-slate-700 dark:text-gray-400 uppercase tracking-wider font-medium dark:font-normal">
+                      Email Address
                     </label>
                     <input
                       id="contact-email"
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="john@example.com"
+                      placeholder="alex@domain.com"
                       required
-                      className="bg-gray-800 border border-gray-700 text-white placeholder-gray-600 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500/40 transition-colors"
+                      className="bg-slate-50 dark:bg-white/[0.02] border border-slate-300 dark:border-white/[0.08] focus:border-sky-500 dark:focus:border-sky-400 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-600 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-sky-500/30 transition-all font-light"
                     />
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="contact-message" className="text-gray-400 text-sm font-medium">
-                    Message
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="contact-message" className="font-mono text-xs text-slate-700 dark:text-gray-400 uppercase tracking-wider font-medium dark:font-normal">
+                    Transmission Message
                   </label>
                   <textarea
                     id="contact-message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Tell me about your project..."
+                    placeholder="Provide details about your project, team opportunity, or inquiry..."
                     required
-                    rows={5}
-                    className="bg-gray-800 border border-gray-700 text-white placeholder-gray-600 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500/40 transition-colors resize-none"
+                    rows={4}
+                    className="bg-slate-50 dark:bg-white/[0.02] border border-slate-300 dark:border-white/[0.08] focus:border-sky-500 dark:focus:border-sky-400 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-600 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-sky-500/30 transition-all font-light resize-none"
                   />
                 </div>
 
                 {formState === 'error' && (
-                  <p className="text-red-400 text-sm text-center bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3">
+                  <p className="text-rose-600 dark:text-rose-400 font-mono text-xs text-center bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/20 rounded-lg px-4 py-2.5">
                     {errorMsg}
                   </p>
                 )}
@@ -208,20 +214,20 @@ const Contact = () => {
                     id="contact-submit"
                     type="submit"
                     disabled={formState === 'loading'}
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-pink-500 text-white rounded-lg hover:bg-pink-400 hover:shadow-lg hover:shadow-pink-500/25 transition-all duration-300 transform hover:scale-105 font-medium disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-slate-900 text-white dark:bg-white dark:text-black rounded-lg hover:bg-sky-600 dark:hover:bg-sky-200 transition-all duration-300 font-mono text-xs font-semibold tracking-wider shadow-md disabled:opacity-50"
                   >
                     {formState === 'loading' ? (
                       <>
-                        <svg className="w-5 h-5 animate-spin" viewBox="0 0 24 24" fill="none">
+                        <svg className="w-4 h-4 animate-spin text-current" viewBox="0 0 24 24" fill="none">
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                         </svg>
-                        Sending…
+                        <span>TRANSMITTING...</span>
                       </>
                     ) : (
                       <>
-                        Send Message
-                        <span className="text-xl">✉️</span>
+                        <span>TRANSMIT MESSAGE</span>
+                        <span>→</span>
                       </>
                     )}
                   </button>

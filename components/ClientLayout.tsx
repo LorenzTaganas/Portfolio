@@ -13,6 +13,13 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     const ease = 0.095
 
     const handleWheel = (e: WheelEvent) => {
+      if (
+        document.body.style.overflow === 'hidden' ||
+        Boolean(document.querySelector('[role="dialog"]'))
+      ) {
+        return
+      }
+
       const target = e.target as HTMLElement
       if (target && target.closest('.overflow-y-auto, .overflow-scroll')) return
 

@@ -99,77 +99,88 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="py-20 px-4 relative bg-black">
-      {/* Visual background glow */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[350px] h-[350px] bg-pink-500/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute top-1/3 right-1/4 -translate-y-1/2 w-[350px] h-[350px] bg-purple-500/5 rounded-full blur-[100px] pointer-events-none" />
-
+    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            About <span className="text-pink-400">Me</span>
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center mb-16">
+          <div className="telemetry-pill mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-sky-500 dark:bg-sky-400" />
+            <span>OPERATOR PROFILE · DOSSIER</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
+            About <span className="text-sky-600 dark:text-sky-400">Lorenz</span>
           </h2>
-          <p className="text-gray-500">Get to know me better</p>
+          <p className="text-gray-600 dark:text-gray-400 max-w-xl text-sm sm:text-base font-light">
+            Bridging robust software development and end-to-end quality engineering.
+          </p>
         </div>
 
         {/* Who I Am & Key Strengths Grid */}
-        <div className="grid md:grid-cols-12 gap-8 items-stretch mb-16">
+        <div className="grid md:grid-cols-12 gap-7 items-stretch mb-14">
           {/* Who I Am Card */}
-          <div className="md:col-span-7 flex flex-col justify-between bg-gray-900 p-8 rounded-2xl border border-gray-800 hover:border-purple-500/30 transition-all duration-300 hover:shadow-xl">
+          <div className="md:col-span-7 horizon-panel rounded-2xl p-7 sm:p-8 flex flex-col justify-between border border-slate-200/80 dark:border-white/[0.08]">
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center text-2xl text-[var(--accent-text)]">
-                  👨‍💻
-                </div>
-                <h3 className="text-2xl font-bold text-white">
-                  Who I Am
-                </h3>
+              <div className="flex items-center justify-between font-mono text-[11px] text-gray-500 tracking-wider mb-5">
+                <span className="uppercase text-gray-500 dark:text-gray-400">BIOGRAPHY · DOSSIER</span>
+                <span className="w-2 h-2 rounded-full bg-sky-500 dark:bg-sky-400 beacon-online" />
               </div>
-              <p className="text-white mb-4 leading-relaxed text-base font-light">
-                I am a <span className="text-pink-400 font-normal">Full Stack Developer</span> and <span className="text-pink-400 font-normal">Quality Assurance Specialist</span> with Salesforce development experience.
-                Throughout my academic journey during my 3rd and 4th years, I have built several projects utilizing diverse tech stacks.
+
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">
+                Engineering with Rigor & Precision
+              </h3>
+              <p className="text-slate-700 dark:text-gray-300 mb-4 leading-relaxed text-sm sm:text-base font-light">
+                I am a <span className="text-slate-900 dark:text-white font-medium">Full Stack Developer</span> and <span className="text-slate-900 dark:text-white font-medium">Quality Assurance Specialist</span> with hands-on enterprise Salesforce development experience.
               </p>
-              <p className="text-white mb-4 leading-relaxed text-base font-light">
-                Currently, my OJT focuses on quality assurance, where I actively ensure software reliability and excellence through rigorous manual and automated testing.
+              <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-sm font-light">
+                Throughout my 3rd and 4th academic years at Bulacan State University, I architected diverse web, mobile, and backend systems utilizing modern component-driven patterns and clean REST architectures.
               </p>
-              <p className="text-white leading-relaxed text-base font-light">
-                I bridge the gap between development and testing, allowing me to build robust applications with quality in mind from the very first line of code.
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm font-light">
+                During my on-the-job training (OJT), I specialized in software quality assurance—designing test plans, executing automated scripts, and verifying application resilience from the very first commit to production deployment.
               </p>
             </div>
           </div>
 
           {/* Key Strengths Card */}
-          <div className="md:col-span-5 flex flex-col justify-between bg-gray-900 p-8 rounded-2xl border border-gray-800 hover:border-purple-500/30 transition-all duration-300 hover:shadow-xl">
+          <div className="md:col-span-5 horizon-panel rounded-2xl p-7 sm:p-8 flex flex-col justify-between border border-slate-200/80 dark:border-white/[0.08]">
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center text-2xl text-[var(--accent-text)]">
-                  ✨
-                </div>
-                <h3 className="text-2xl font-bold text-white">
-                  Core Focus
-                </h3>
+              <div className="flex items-center justify-between font-mono text-[11px] text-gray-500 tracking-wider mb-5">
+                <span className="uppercase text-gray-500 dark:text-gray-400">CORE COMPETENCIES</span>
+                <span className="text-sky-600 dark:text-sky-400">3 DISCIPLINES</span>
               </div>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4 p-4.5 rounded-xl bg-gray-950 border border-gray-800 hover:bg-gray-800 transition-colors">
-                  <span className="text-2xl mt-0.5">💻</span>
-                  <div>
-                    <h4 className="font-semibold text-white">Full Stack Development</h4>
-                    <p className="text-xs text-gray-300 mt-1">Creating robust web and mobile applications using modern frontend and backend technologies.</p>
+
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-5 tracking-tight">
+                Focus Areas
+              </h3>
+
+              <div className="space-y-3.5">
+                <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.08] hover:border-sky-400/40 dark:hover:border-white/20 transition-colors">
+                  <div className="flex items-center justify-between">
+                    <h4 className="font-semibold text-slate-900 dark:text-white text-sm">Full Stack Development</h4>
+                    <span className="text-[10px] font-mono text-sky-600 dark:text-sky-400">REACT / NODE / PYTHON</span>
                   </div>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 font-light">
+                    Building responsive, scalable web and mobile software with component design systems and microservices.
+                  </p>
                 </div>
-                <div className="flex items-start gap-4 p-4.5 rounded-xl bg-gray-950 border border-gray-800 hover:bg-gray-800 transition-colors">
-                  <span className="text-2xl mt-0.5">🧪</span>
-                  <div>
-                    <h4 className="font-semibold text-white">Quality Assurance</h4>
-                    <p className="text-xs text-gray-300 mt-1">Formulating test cases, identifying software defects, and executing end-to-end testing.</p>
+
+                <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.08] hover:border-sky-400/40 dark:hover:border-white/20 transition-colors">
+                  <div className="flex items-center justify-between">
+                    <h4 className="font-semibold text-slate-900 dark:text-white text-sm">Quality Assurance & Testing</h4>
+                    <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400">PLAYWRIGHT / JIRA</span>
                   </div>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 font-light">
+                    Authoring structured test matrices, defect reproduction, and end-to-end regression test automation.
+                  </p>
                 </div>
-                <div className="flex items-start gap-4 p-4.5 rounded-xl bg-gray-950 border border-gray-800 hover:bg-gray-800 transition-colors">
-                  <span className="text-2xl mt-0.5">☁️</span>
-                  <div>
-                    <h4 className="font-semibold text-white">Salesforce CRM</h4>
-                    <p className="text-xs text-gray-300 mt-1">Designing configurations, custom Apex logic, and integrations within Salesforce Cloud.</p>
+
+                <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.08] hover:border-sky-400/40 dark:hover:border-white/20 transition-colors">
+                  <div className="flex items-center justify-between">
+                    <h4 className="font-semibold text-slate-900 dark:text-white text-sm">Salesforce CRM</h4>
+                    <span className="text-[10px] font-mono text-sky-600 dark:text-sky-400">APEX / CLOUD</span>
                   </div>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 font-light">
+                    Custom business logic automation, triggers, and integrations on the Salesforce enterprise cloud platform.
+                  </p>
                 </div>
               </div>
             </div>
@@ -177,45 +188,53 @@ const About = () => {
         </div>
 
         {/* Skills Section (Infinite Marquee) */}
-        <div className="bg-gray-900 p-8 rounded-2xl border border-gray-800 mb-16">
-          <div className="flex flex-col items-center mb-8">
-            <h3 className="text-2xl font-bold text-white mb-2">My Tech Stack</h3>
-            <p className="text-gray-500 text-sm">Continuously scrolling skills & tools</p>
+        <div className="horizon-panel rounded-2xl p-7 sm:p-8 mb-14 border border-slate-200/80 dark:border-white/[0.08]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+            <div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">Technical Arsenal</h3>
+              <p className="text-gray-500 dark:text-gray-400 font-mono text-xs">Frameworks, platforms & verification tools</p>
+            </div>
+            <div className="telemetry-pill">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400" />
+              <span>13 ACTIVE TECHNOLOGIES</span>
+            </div>
           </div>
 
-          <div className="marquee-container w-full overflow-hidden relative pt-12 pb-4">
-            <div className="animate-marquee-ltr flex gap-8 whitespace-nowrap">
+          <div className="marquee-container w-full overflow-hidden relative pt-6 pb-2">
+            <div className="animate-marquee-ltr flex gap-6 whitespace-nowrap">
               {/* Set 1 */}
-              <div className="flex gap-8 shrink-0 items-center">
+              <div className="flex gap-6 shrink-0 items-center">
                 {skills.map((skill, index) => (
                   <a
                     key={`skill-1-${index}`}
                     href={skill.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative group/tooltip flex items-center justify-center bg-gray-950 p-6 rounded-2xl border border-gray-800 hover:border-purple-500/30 transition-all duration-300 hover:scale-110 cursor-pointer w-24 h-24 shrink-0 shadow-lg"
+                    className="relative group/tooltip flex flex-col items-center justify-center bg-slate-50 dark:bg-white/[0.02] p-4 rounded-xl border border-slate-200 dark:border-white/[0.08] hover:border-sky-500/40 dark:hover:border-white/30 transition-all duration-300 hover:scale-105 cursor-pointer w-24 h-24 shrink-0 shadow-sm dark:shadow-lg"
                   >
-                    {skill.icon}
-                    {/* Premium Tooltip */}
-                    <span className="pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-gray-950 px-3 py-1.5 text-xs text-white font-medium opacity-0 scale-95 transition-all duration-300 group-hover/tooltip:opacity-100 group-hover/tooltip:scale-100 border border-gray-800 shadow-xl z-20">
+                    <div className="w-10 h-10 flex items-center justify-center">
+                      {skill.icon}
+                    </div>
+                    <span className="mt-1.5 font-mono text-[10px] text-slate-600 dark:text-gray-400 group-hover/tooltip:text-slate-900 dark:group-hover/tooltip:text-white">
                       {skill.name}
                     </span>
                   </a>
                 ))}
               </div>
               {/* Set 2 (Duplicate for seamless loop) */}
-              <div className="flex gap-8 shrink-0 items-center">
+              <div className="flex gap-6 shrink-0 items-center">
                 {skills.map((skill, index) => (
                   <a
                     key={`skill-2-${index}`}
                     href={skill.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative group/tooltip flex items-center justify-center bg-gray-950 p-6 rounded-2xl border border-gray-800 hover:border-purple-500/30 transition-all duration-300 hover:scale-110 cursor-pointer w-24 h-24 shrink-0 shadow-lg"
+                    className="relative group/tooltip flex flex-col items-center justify-center bg-slate-50 dark:bg-white/[0.02] p-4 rounded-xl border border-slate-200 dark:border-white/[0.08] hover:border-sky-500/40 dark:hover:border-white/30 transition-all duration-300 hover:scale-105 cursor-pointer w-24 h-24 shrink-0 shadow-sm dark:shadow-lg"
                   >
-                    {skill.icon}
-                    {/* Premium Tooltip */}
-                    <span className="pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-gray-950 px-3 py-1.5 text-xs text-white font-medium opacity-0 scale-95 transition-all duration-300 group-hover/tooltip:opacity-100 group-hover/tooltip:scale-100 border border-gray-800 shadow-xl z-20">
+                    <div className="w-10 h-10 flex items-center justify-center">
+                      {skill.icon}
+                    </div>
+                    <span className="mt-1.5 font-mono text-[10px] text-slate-600 dark:text-gray-400 group-hover/tooltip:text-slate-900 dark:group-hover/tooltip:text-white">
                       {skill.name}
                     </span>
                   </a>
@@ -226,18 +245,18 @@ const About = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid grid-cols-3 gap-6">
-          <div className="bg-purple-500/10 p-6 rounded-xl border border-purple-500/20 text-center hover:bg-purple-500/20 transition-colors">
-            <div className="text-3xl font-bold text-purple-400 mb-2">3+</div>
-            <div className="text-gray-500 text-sm">Projects Completed</div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <div className="horizon-panel rounded-xl p-6 text-center border border-slate-200/80 dark:border-white/[0.08]">
+            <div className="text-3xl font-mono font-bold text-slate-900 dark:text-white mb-1">4+</div>
+            <div className="font-mono text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">Production Specimens</div>
           </div>
-          <div className="bg-purple-500/10 p-6 rounded-xl border border-purple-500/20 text-center hover:bg-purple-500/20 transition-colors">
-            <div className="text-3xl font-bold text-purple-400 mb-2">13</div>
-            <div className="text-gray-500 text-sm">Technologies</div>
+          <div className="horizon-panel rounded-xl p-6 text-center border border-slate-200/80 dark:border-white/[0.08]">
+            <div className="text-3xl font-mono font-bold text-sky-600 dark:text-sky-400 mb-1">13</div>
+            <div className="font-mono text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">Core Technologies</div>
           </div>
-          <div className="bg-purple-500/10 p-6 rounded-xl border border-purple-500/20 text-center hover:bg-purple-500/20 transition-colors">
-            <div className="text-3xl font-bold text-purple-400 mb-2">100%</div>
-            <div className="text-gray-500 text-sm">Dedication</div>
+          <div className="horizon-panel rounded-xl p-6 text-center border border-slate-200/80 dark:border-white/[0.08]">
+            <div className="text-3xl font-mono font-bold text-emerald-600 dark:text-emerald-400 mb-1">100%</div>
+            <div className="font-mono text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">QA Commitment</div>
           </div>
         </div>
       </div>
