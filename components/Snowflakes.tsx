@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
+import { useTheme } from './ThemeProvider'
 
 interface Particle {
   x: number
@@ -14,7 +15,22 @@ interface Particle {
   color: string
 }
 
+function toRgbaPrefix(color: string): string {
+  const hex = color.replace('#', '')
+  const normalized = hex.length === 3
+    ? hex.split('').map((part) => `${part}${part}`).join('')
+    : hex
+
+  if (normalized.length !== 6) return 'rgba(240, 244, 252, '
+
+  const red = Number.parseInt(normalized.slice(0, 2), 16)
+  const green = Number.parseInt(normalized.slice(2, 4), 16)
+  const blue = Number.parseInt(normalized.slice(4, 6), 16)
+  return `rgba(${red}, ${green}, ${blue}, `
+}
+
 const Snowflakes = () => {
+  const { accentColor } = useTheme()
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const [isEnabled, setIsEnabled] = useState(true)
   const [isClient, setIsClient] = useState(false)
@@ -53,13 +69,11 @@ const Snowflakes = () => {
 
     window.addEventListener('resize', handleResize)
 
-    // Palette of soft luminous particles matching the theme
-    const colors = [
-      'rgba(240, 244, 252, ', // Lumen white
-      'rgba(216, 226, 240, ', // Soft ice
-      'rgba(186, 215, 248, ', // Crystal blue
-      'rgba(255, 255, 255, ', // Pure white
-    ]
+    const accent = getComputedStyle(document.documentElement)
+      .getPropertyValue('--accent-primary')
+      .trim()
+    const accentRgba = toRgbaPrefix(accent)
+    const colors = [accentRgba, accentRgba, accentRgba]
 
     const particleCount = Math.min(55, Math.floor(width / 24))
     const particles: Particle[] = []
@@ -133,7 +147,7 @@ const Snowflakes = () => {
         cancelAnimationFrame(animationFrameRef.current)
       }
     }
-  }, [isEnabled, isClient])
+  }, [accentColor, isEnabled, isClient])
 
   if (!isClient) return null
 

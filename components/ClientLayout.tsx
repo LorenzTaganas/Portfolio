@@ -66,12 +66,12 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   }, [])
 
   return (
-    <>
+    <div className="tech-grid-bg min-h-screen">
       <Snowflakes />
       <Navbar />
       {children}
       <Footer />
-    </>
+    </div>
   )
 }
 

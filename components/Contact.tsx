@@ -214,7 +214,7 @@ const Contact = () => {
                     id="contact-submit"
                     type="submit"
                     disabled={formState === 'loading'}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-slate-900 text-white dark:bg-white dark:text-black rounded-lg hover:bg-sky-600 dark:hover:bg-sky-200 transition-all duration-300 font-mono text-xs font-semibold tracking-wider shadow-md disabled:opacity-50"
+                    className="action-button w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg transition-all duration-300 font-mono text-xs font-semibold tracking-wider shadow-md disabled:opacity-50"
                   >
                     {formState === 'loading' ? (
                       <>

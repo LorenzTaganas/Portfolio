@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(html:not(.light), html:not(.light) *));
+@custom-variant light (&:where(html.light, html.light *));
+
 /* ==========================================================================
    LUMEN EDGE DESIGN SYSTEM TOKENS & UTILITIES
    Sub-chromatic dark system built on bottom-lit radial surfaces,
@@ -24,12 +27,15 @@
 
   --horizon-glow: rgba(255, 255, 255, 0.35);
   --radial-light: rgba(255, 255, 255, 0.06);
+  --grid-line: rgba(56, 189, 248, 0.08);
 
   /* Functional Accent (Default: Luminous Cyan / Ice Blue) */
   --accent-primary: #38bdf8;
   --accent-secondary: #0284c7;
   --accent-glow: rgba(56, 189, 248, 0.25);
   --accent-text: #07080b;
+  --action-bg: #f0f4fc;
+  --action-text: #07080b;
 
   --border-color: var(--rim-hairline);
   --shadow-color: rgba(0, 0, 0, 0.6);
@@ -53,11 +59,14 @@ html.light {
 
   --horizon-glow: rgba(15, 23, 42, 0.15);
   --radial-light: rgba(15, 23, 42, 0.03);
+  --grid-line: rgba(2, 132, 199, 0.1);
 
   --accent-primary: #0284c7;
   --accent-secondary: #0369a1;
   --accent-glow: rgba(2, 132, 199, 0.18);
   --accent-text: #ffffff;
+  --action-bg: #0f172a;
+  --action-text: #ffffff;
 
   --border-color: var(--rim-hairline);
   --shadow-color: rgba(15, 23, 42, 0.08);
@@ -68,36 +77,50 @@ html.accent-green {
   --accent-primary: #10b981;
   --accent-secondary: #059669;
   --accent-glow: rgba(16, 185, 129, 0.28);
+  --grid-line: rgba(16, 185, 129, 0.1);
 }
 html.accent-white {
   --accent-primary: #f8fafc;
   --accent-secondary: #cbd5e1;
   --accent-glow: rgba(255, 255, 255, 0.3);
+  --grid-line: rgba(248, 250, 252, 0.1);
+}
+
+html.light.accent-white {
+  --accent-primary: #0f172a;
+  --accent-secondary: #334155;
+  --accent-glow: rgba(15, 23, 42, 0.2);
+  --grid-line: rgba(15, 23, 42, 0.1);
 }
 html.accent-blue {
   --accent-primary: #38bdf8;
   --accent-secondary: #0284c7;
   --accent-glow: rgba(56, 189, 248, 0.25);
+  --grid-line: rgba(56, 189, 248, 0.08);
 }
 html.accent-red {
   --accent-primary: #f43f5e;
   --accent-secondary: #e11d48;
   --accent-glow: rgba(244, 63, 94, 0.25);
+  --grid-line: rgba(244, 63, 94, 0.1);
 }
 html.accent-orange {
   --accent-primary: #f97316;
   --accent-secondary: #ea580c;
   --accent-glow: rgba(249, 115, 22, 0.25);
+  --grid-line: rgba(249, 115, 22, 0.1);
 }
 html.accent-purple {
   --accent-primary: #a855f7;
   --accent-secondary: #9333ea;
   --accent-glow: rgba(168, 85, 247, 0.25);
+  --grid-line: rgba(168, 85, 247, 0.1);
 }
 html.accent-grey {
   --accent-primary: #94a3b8;
   --accent-secondary: #64748b;
   --accent-glow: rgba(148, 163, 184, 0.2);
+  --grid-line: rgba(148, 163, 184, 0.1);
 }
 
 /* ==========================================================================
@@ -117,15 +140,15 @@ html, body {
 /* Subtle Vertical Hairline Grid */
 .tech-grid-bg {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
 html.light .tech-grid-bg {
   background-image: 
-    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.018) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
@@ -151,6 +174,29 @@ html.light .horizon-panel {
 
 html.light .horizon-panel:hover {
   box-shadow: 0 18px 38px -12px rgba(15, 23, 42, 0.14);
+}
+
+.action-button {
+  background-color: var(--action-bg) !important;
+  color: var(--action-text) !important;
+}
+
+.action-button:hover {
+  background-color: var(--accent-primary) !important;
+  color: #ffffff !important;
+}
+
+html.accent-white .action-button:hover {
+  color: #07080b !important;
+}
+
+html.light.accent-white .action-button:hover {
+  color: #ffffff !important;
+}
+
+.accent-swatch-white {
+  background-image: linear-gradient(90deg, #ffffff 0 50%, #07080b 50% 100%) !important;
+  background-color: #07080b !important;
 }
 
 /* 70% Luminous Horizon Line */

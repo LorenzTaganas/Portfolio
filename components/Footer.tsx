@@ -48,20 +48,20 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="relative border-t border-white/[0.08] bg-[#06070a] py-14 px-4 sm:px-6 lg:px-8">
+    <footer className="relative border-t border-[var(--rim-hairline)] bg-[var(--bg-void)]/80 py-14 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-12 items-start">
           {/* Brand Column */}
           <div className="md:col-span-6 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/[0.12] flex items-center justify-center">
-                <span className="text-[11px] font-mono text-white font-bold">▲</span>
+              <div className="w-8 h-8 rounded-lg bg-[var(--radial-light)] border border-[var(--rim-hairline)] flex items-center justify-center">
+                <span className="text-[11px] font-mono text-[var(--text-fore)] font-bold">▲</span>
               </div>
-              <span className="font-mono text-xs font-semibold tracking-widest text-white uppercase">
+              <span className="font-mono text-xs font-semibold tracking-widest text-[var(--text-fore)] uppercase">
                 LORENZ TAGANAS
               </span>
             </div>
-            <p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-md font-light">
+            <p className="text-[var(--text-muted)] text-xs sm:text-sm leading-relaxed max-w-md font-light">
               Crafted by Lorenz Taganas — Full Stack Developer & Quality Assurance Engineer. Engineered for resilience, visual elegance, and performance.
             </p>
             <div className="telemetry-pill">
@@ -72,7 +72,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="md:col-span-3">
-            <h3 className="font-mono text-xs uppercase tracking-widest text-white mb-4">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-fore)] mb-4">
               DIRECTORY
             </h3>
             <ul className="space-y-2 font-mono text-xs">
@@ -80,7 +80,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors flex items-center gap-2"
+                    className="text-[var(--text-muted)] hover:text-[var(--text-fore)] transition-colors flex items-center gap-2"
                   >
                     <span className="text-gray-600 text-[10px]">{link.code}</span>
                     <span>{link.name}</span>
@@ -92,7 +92,7 @@ const Footer = () => {
 
           {/* Socials & Dossier */}
           <div className="md:col-span-3">
-            <h3 className="font-mono text-xs uppercase tracking-widest text-white mb-4">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-[var(--text-fore)] mb-4">
               CONNECT
             </h3>
             <div className="flex gap-2.5 mb-5">
@@ -102,7 +102,7 @@ const Footer = () => {
                   href={social.url}
                   target={social.url.startsWith('http') ? '_blank' : undefined}
                   rel={social.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="w-9 h-9 rounded-lg bg-white/[0.03] border border-white/[0.08] hover:border-white/30 text-gray-400 hover:text-white flex items-center justify-center transition-all duration-200"
+                  className="w-9 h-9 rounded-lg bg-[var(--radial-light)] border border-[var(--rim-hairline)] hover:border-[var(--rim-hairline-hover)] text-[var(--text-muted)] hover:text-[var(--text-fore)] flex items-center justify-center transition-all duration-200"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -112,7 +112,7 @@ const Footer = () => {
             <a
               href="/resume.pdf"
               download
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/[0.04] border border-white/[0.1] hover:border-white/30 text-xs font-mono text-white transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--radial-light)] border border-[var(--rim-hairline)] hover:border-[var(--rim-hairline-hover)] text-xs font-mono text-[var(--text-fore)] transition-all"
             >
               <span>DOWNLOAD RESUME</span>
               <span>↓</span>
@@ -121,7 +121,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Metadata */}
-        <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-gray-500">
+        <div className="pt-8 border-t border-[var(--rim-hairline)] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-[var(--text-muted)]">
           <p>© {currentYear} Lorenz Taganas. All systems operational.</p>
           <p className="flex items-center gap-2">
             <span>NEXT.JS 16</span>

@@ -13,9 +13,9 @@ const Navbar = () => {
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0 })
 
   const accentOptions = [
+    { name: 'white' as const, colorClass: 'accent-swatch-white', label: 'White / Black' },
     { name: 'blue' as const, colorClass: 'bg-[#38BDF8]', label: 'Cyan / Ice' },
     { name: 'green' as const, colorClass: 'bg-[#10B981]', label: 'Emerald' },
-    { name: 'white' as const, colorClass: 'bg-[#FFFFFF]', label: 'Pure White' },
     { name: 'red' as const, colorClass: 'bg-[#F43F5E]', label: 'Rose' },
     { name: 'orange' as const, colorClass: 'bg-[#F97316]', label: 'Amber' },
     { name: 'purple' as const, colorClass: 'bg-[#A855F7]', label: 'Violet' },
@@ -104,8 +104,8 @@ const Navbar = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#07080b]/85 dark:bg-[#07080b]/85 light:bg-[#f5f7fa]/90 backdrop-blur-xl border-b border-white/[0.07] shadow-lg shadow-black/40'
-          : 'bg-transparent border-b border-white/[0.03]'
+          ? 'bg-[var(--bg-navbar)] backdrop-blur-xl border-b border-[var(--rim-hairline)] shadow-lg shadow-black/40'
+          : 'bg-transparent border-b border-[var(--rim-hairline)]'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -116,29 +116,29 @@ const Navbar = () => {
             onClick={(e) => handleNavClick(e, '#home')}
             className="flex items-center gap-3 group"
           >
-            <div className="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.12] group-hover:border-white/30 flex items-center justify-center transition-all duration-300 group-hover:scale-105 shadow-inner">
-              <span className="text-[11px] text-white/90 font-mono font-bold">▲</span>
+            <div className="w-8 h-8 rounded-lg bg-[var(--radial-light)] border border-[var(--rim-hairline)] group-hover:border-[var(--rim-hairline-hover)] flex items-center justify-center transition-all duration-300 group-hover:scale-105 shadow-inner">
+              <span className="text-[11px] text-[var(--text-fore)] font-mono font-bold">▲</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-mono text-xs font-semibold tracking-widest text-white dark:text-white light:text-gray-900 uppercase">
+              <span className="font-mono text-xs font-semibold tracking-widest text-[var(--text-fore)] uppercase">
                 LORENZ TAGANAS
               </span>
-              <span className="text-[10px] font-mono text-gray-500 tracking-wider">
+              <span className="text-[10px] font-mono text-[var(--text-muted)] tracking-wider">
                 PORTFOLIO · DEV & QA
               </span>
             </div>
           </a>
 
           {/* Center / Right Telemetry Status Pill (Directly from reference screenshot) */}
-          <div className="hidden xl:flex items-center gap-3 font-mono text-[11px] tracking-wider text-gray-400 select-none">
-            <span className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08]">
+          <div className="hidden xl:flex items-center gap-3 font-mono text-[11px] tracking-wider text-[var(--text-muted)] select-none">
+            <span className="flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--radial-light)] border border-[var(--rim-hairline)]">
               <span className="w-2 h-2 rounded-full bg-emerald-400 beacon-online shadow-[0_0_8px_#34d399]" />
-              <span className="text-white/90 font-medium">SYSTEM ONLINE</span>
+              <span className="text-[var(--text-fore)] font-medium">SYSTEM ONLINE</span>
             </span>
-            <span className="text-gray-700">·</span>
-            <span className="text-gray-400">THEME · {theme.toUpperCase()}</span>
-            <span className="text-gray-700">·</span>
-            <span className="text-gray-500">V 2.4</span>
+            <span className="text-[var(--text-dim)]">·</span>
+            <span>THEME · {theme.toUpperCase()}</span>
+            <span className="text-[var(--text-dim)]">·</span>
+            <span className="text-[var(--text-muted)]">V 2.4</span>
           </div>
 
           {/* Desktop Navigation Links */}
@@ -155,7 +155,7 @@ const Navbar = () => {
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={`relative px-3.5 py-1.5 font-mono text-xs tracking-wider transition-colors duration-200 rounded-md ${
                     isActive
-                      ? 'text-white font-medium'
+                      ? 'text-[var(--accent-primary)] font-medium'
                       : 'text-gray-400 hover:text-white hover:bg-white/[0.03]'
                   }`}
                 >
@@ -169,7 +169,7 @@ const Navbar = () => {
 
             {/* Sliding Luminous Horizon Indicator */}
             <span
-              className="absolute bottom-0 h-[2px] bg-gradient-to-r from-sky-400 to-white pointer-events-none rounded-full"
+              className="absolute bottom-0 h-[2px] bg-[var(--accent-primary)] pointer-events-none rounded-full shadow-[0_0_8px_var(--accent-glow)]"
               style={{
                 left: indicatorStyle.left,
                 width: indicatorStyle.width,
@@ -180,12 +180,12 @@ const Navbar = () => {
             />
 
             {/* Controls Divider */}
-            <div className="w-[1px] h-4 bg-white/[0.1] mx-2" />
+            <div className="w-[1px] h-4 bg-[var(--rim-hairline)] mx-2" />
 
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              className="p-2 text-gray-400 hover:text-white hover:bg-white/[0.05] rounded-lg transition-all duration-200 border border-transparent hover:border-white/[0.08]"
+              className="p-2 text-[var(--text-muted)] hover:text-[var(--text-fore)] hover:bg-[var(--radial-light)] rounded-lg transition-all duration-200 border border-transparent hover:border-[var(--rim-hairline-hover)]"
               aria-label="Toggle theme"
               title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
             >
@@ -223,7 +223,7 @@ const Navbar = () => {
             <div className="relative">
               <button
                 onClick={() => setIsColorDropdownOpen(!isColorDropdownOpen)}
-                className="p-2 text-gray-400 hover:text-white hover:bg-white/[0.05] rounded-lg transition-all duration-200 border border-transparent hover:border-white/[0.08] flex items-center justify-center"
+                className="p-2 text-[var(--text-muted)] hover:text-[var(--text-fore)] hover:bg-[var(--radial-light)] rounded-lg transition-all duration-200 border border-transparent hover:border-[var(--rim-hairline-hover)] flex items-center justify-center"
                 aria-label="Choose Accent Color"
                 title={`Accent: ${accentColor}`}
               >
@@ -249,7 +249,7 @@ const Navbar = () => {
                     className="fixed inset-0 z-40"
                     onClick={() => setIsColorDropdownOpen(false)}
                   />
-                  <div className="absolute right-0 mt-2 bg-[#0d0f14]/95 backdrop-blur-2xl border border-white/[0.12] rounded-xl px-3 py-2.5 shadow-2xl z-50 flex items-center gap-2.5">
+                  <div className="absolute right-0 mt-2 bg-[var(--bg-panel)]/95 backdrop-blur-2xl border border-[var(--rim-hairline)] rounded-xl px-3 py-2.5 shadow-2xl z-50 flex items-center gap-2.5">
                     {accentOptions.map((opt) => {
                       const isSelected = accentColor === opt.name
                       return (
@@ -263,7 +263,7 @@ const Navbar = () => {
                             opt.colorClass
                           } ${
                             isSelected
-                              ? 'ring-2 ring-white ring-offset-2 ring-offset-[#0d0f14] scale-110 shadow-lg'
+                              ? 'ring-2 ring-[var(--text-fore)] ring-offset-2 ring-offset-[var(--bg-panel)] scale-110 shadow-lg'
                               : 'opacity-70 hover:opacity-100 hover:scale-110'
                           }`}
                           title={opt.label}
@@ -280,7 +280,7 @@ const Navbar = () => {
           {/* Mobile menu trigger */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-gray-400 hover:text-white p-2"
+            className="md:hidden text-[var(--text-muted)] hover:text-[var(--text-fore)] p-2"
             aria-label="Open menu"
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -296,7 +296,7 @@ const Navbar = () => {
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#0a0c12]/95 backdrop-blur-2xl border-b border-white/[0.08] px-4 py-4 space-y-2">
+        <div className="md:hidden bg-[var(--bg-navbar)] backdrop-blur-2xl border-b border-[var(--rim-hairline)] px-4 py-4 space-y-2">
           {navItems.map((item) => {
             const isActive = activeSection === item.href.slice(1)
             return (
@@ -315,10 +315,10 @@ const Navbar = () => {
               </a>
             )
           })}
-          <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between">
+          <div className="pt-3 border-t border-[var(--rim-hairline)] flex items-center justify-between">
             <button
               onClick={toggleTheme}
-              className="font-mono text-xs text-gray-400 hover:text-white flex items-center gap-2"
+              className="font-mono text-xs text-[var(--text-muted)] hover:text-[var(--text-fore)] flex items-center gap-2"
             >
               <span>THEME: {theme.toUpperCase()}</span>
             </button>
