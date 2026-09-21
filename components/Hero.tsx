@@ -117,7 +117,7 @@ const Hero = () => {
               <a
                 href="#projects"
                 onClick={(e) => scrollToSection(e, 'projects')}
-                className="flex items-center gap-2.5 px-6 py-3 rounded-lg bg-white text-black font-mono text-xs font-semibold tracking-wider hover:bg-sky-200 transition-all duration-300 shadow-[0_0_25px_rgba(255,255,255,0.2)] hover:scale-[1.02]"
+                className="action-button flex items-center gap-2.5 px-6 py-3 rounded-lg font-mono text-xs font-semibold tracking-wider hover:scale-[1.02] transition-all duration-300 shadow-[0_0_25px_rgba(255,255,255,0.2)]"
               >
                 <span>EXPLORE WORK</span>
                 <span>→</span>
@@ -126,7 +126,7 @@ const Hero = () => {
               <a
                 href="#contact"
                 onClick={(e) => scrollToSection(e, 'contact')}
-                className="flex items-center gap-2 px-6 py-3 rounded-lg bg-white/[0.04] border border-white/[0.12] text-white font-mono text-xs tracking-wider hover:bg-white/[0.08] hover:border-white/30 transition-all duration-300"
+                className="flex items-center gap-2 px-6 py-3 rounded-lg bg-[var(--radial-light)] border border-[var(--rim-hairline)] text-[var(--text-fore)] font-mono text-xs tracking-wider hover:bg-[var(--radial-light)] hover:border-[var(--rim-hairline-hover)] transition-all duration-300"
               >
                 <span>INITIATE CONTACT</span>
               </a>
@@ -134,7 +134,7 @@ const Hero = () => {
               <a
                 href="/resume.pdf"
                 download
-                className="flex items-center gap-2 px-5 py-3 rounded-lg bg-white/[0.02] border border-white/[0.08] text-gray-400 hover:text-white font-mono text-xs tracking-wider hover:bg-white/[0.06] transition-all duration-300"
+                className="flex items-center gap-2 px-5 py-3 rounded-lg bg-[var(--radial-light)] border border-[var(--rim-hairline)] text-[var(--text-muted)] hover:text-[var(--text-fore)] font-mono text-xs tracking-wider hover:bg-[var(--radial-light)] hover:border-[var(--rim-hairline-hover)] transition-all duration-300"
               >
                 <span>DOSSIER (CV) ↗</span>
               </a>
@@ -143,7 +143,7 @@ const Hero = () => {
 
           {/* Right Column: Specimen Horizon Panel matching reference image */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="horizon-panel w-full max-w-md rounded-2xl p-6 sm:p-7 border border-white/[0.1] shadow-2xl">
+            <div className="horizon-panel w-full max-w-md rounded-2xl p-6 sm:p-7 border border-[var(--rim-hairline)] shadow-2xl">
               {/* Header */}
               <div className="flex items-center justify-between font-mono text-[11px] text-gray-400 tracking-wider mb-5">
                 <span className="uppercase tracking-widest text-gray-400">HORIZON SPECIMEN</span>
@@ -151,7 +151,7 @@ const Hero = () => {
               </div>
 
               {/* Picture Frame with Hairline Inset Rim */}
-              <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-white/[0.12] bg-[#0c0e14] mb-5 group">
+              <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-[var(--rim-hairline)] bg-[var(--bg-graphite)] mb-5 group">
                 <img
                   src="/profile.jpg"
                   alt="Lorenz Taganas Portrait"
