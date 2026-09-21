@@ -30,7 +30,7 @@ function toRgbaPrefix(color: string): string {
 }
 
 const Snowflakes = () => {
-  const { accentColor } = useTheme()
+  const { accentColor, theme } = useTheme()
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const [isEnabled, setIsEnabled] = useState(true)
   const [isClient, setIsClient] = useState(false)
@@ -147,7 +147,7 @@ const Snowflakes = () => {
         cancelAnimationFrame(animationFrameRef.current)
       }
     }
-  }, [accentColor, isEnabled, isClient])
+  }, [accentColor, isEnabled, isClient, theme])
 
   if (!isClient) return null
 
