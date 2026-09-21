@@ -313,7 +313,7 @@ const Projects = () => {
             {/* Modal Body */}
             <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-6 sm:p-8 space-y-6">
               {/* Project Image Banner Mockup */}
-              <div className={`relative w-full rounded-xl overflow-hidden border border-slate-200 dark:border-white/[0.1] bg-slate-100 dark:bg-[#07090e] shadow-md group ${selectedProject.images ? 'mx-auto aspect-[9/16] max-h-[52vh] max-w-[20rem]' : 'h-56 sm:h-72'}`}>
+              <div className="relative w-full h-56 sm:h-72 rounded-xl overflow-hidden border border-slate-200 dark:border-white/[0.1] bg-slate-100 dark:bg-[#07090e] shadow-md group">
                 {selectedProject.image ? (
                   <>
                     <img
