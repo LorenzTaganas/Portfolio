@@ -62,7 +62,7 @@ const Projects = () => {
         'Jam Master is an adrenaline-fueled mobile rhythm arcade game developed with Java and Firebase. Players hit tempo-synchronized notes across multi-lane tracks with reactive lighting cues, combo streaks, real-time leaderboard sync, and smooth 60fps gesture controls.',
       tech: ['Java', 'Android SDK', 'Firebase', 'Mobile Game Engine'],
       github: 'https://github.com/LorenzTaganas/Jam-Master-Mobile-app',
-      image: '/projects/jam_master.jpg',
+      image: '/projects/jam2-landscape.jpg',
       progress: 100,
       status: 'Production',
       purpose: 'Academic',
@@ -189,7 +189,9 @@ const Projects = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              onClick={() => setSelectedProject(project)}
+              onClick={() => {
+                setSelectedProject(project)
+              }}
               role="button"
               tabIndex={0}
               onKeyDown={(e) => {
@@ -311,13 +313,13 @@ const Projects = () => {
             {/* Modal Body */}
             <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-6 sm:p-8 space-y-6">
               {/* Project Image Banner Mockup */}
-              <div className="relative w-full h-56 sm:h-72 rounded-xl overflow-hidden border border-slate-200 dark:border-white/[0.1] bg-slate-100 dark:bg-[#07090e] shadow-md group">
+              <div className={`relative w-full rounded-xl overflow-hidden border border-slate-200 dark:border-white/[0.1] bg-slate-100 dark:bg-[#07090e] shadow-md group ${selectedProject.images ? 'mx-auto aspect-[9/16] max-h-[52vh] max-w-[20rem]' : 'h-56 sm:h-72'}`}>
                 {selectedProject.image ? (
                   <>
                     <img
                       src={selectedProject.image}
                       alt={`${selectedProject.title} Interface Preview`}
-                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 dark:from-[#0e1118] via-transparent to-transparent opacity-80 pointer-events-none" />
                     <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between font-mono text-[11px] text-white">
