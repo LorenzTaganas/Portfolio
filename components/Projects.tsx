@@ -77,7 +77,7 @@ const Projects = () => {
     {
       id: 'student-mgmt',
       specimenNumber: 'SPECIMEN · 03',
-      title: 'Student Management System',
+      title: 'Acadex',
       subtitle: 'Academic Administration & Records Engine',
       category: 'ENTERPRISE WEB',
       description:
@@ -86,7 +86,7 @@ const Projects = () => {
         'A mission-critical enterprise web platform tailored for university administration. It centralizes student dossiers, tracks semester-by-semester GPA trends with interactive charts, handles course enrollment workflows, and provides automated exportable grade reports.',
       tech: ['Python', 'Django', 'SQLite', 'Chart.js', 'Bootstrap'],
       github: 'https://github.com/LorenzTaganas/StudentManagementSystem',
-      image: '/projects/student_management.jpg',
+      image: '/projects/acadex.png',
       progress: 80,
       status: 'Production',
       purpose: 'Academic',
