@@ -14,7 +14,7 @@ interface Project {
   tech: string[]
   github: string
   demo?: string
-  image: string
+  image?: string
   progress: number
   status: 'Live' | 'Quiet' | 'Production' | 'Testing'
   purpose: 'Capstone' | 'Personal' | 'Academic'
@@ -27,9 +27,9 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
-      id: 'arthub',
+      id: 'adcore',
       specimenNumber: 'SPECIMEN · 01',
-      title: 'ArtHub Marketplace',
+      title: 'ADCore',
       subtitle: 'E-Commerce Platform for Digital & Traditional Art',
       category: 'FULL STACK WEB',
       description:
@@ -38,7 +38,7 @@ const Projects = () => {
         'ArtHub is a comprehensive online marketplace engineered to empower digital and traditional artists. Built with a performant MERN stack architecture, it supports end-to-end shopping journeys including real-time inventory management, artist portfolio showcases, secure customer authentication, and payment workflows.',
       tech: ['MongoDB', 'Express.js', 'React', 'Node.js', 'TailwindCSS'],
       github: 'https://github.com/LorenzTaganas/Arthubb',
-      image: '/projects/arthub.jpg',
+      image: '/projects/adcore.png',
       progress: 98,
       status: 'Production',
       purpose: 'Capstone',
@@ -101,7 +101,7 @@ const Projects = () => {
     {
       id: 'it-helpdesk',
       specimenNumber: 'SPECIMEN · 04',
-      title: 'Support Hub Helpdesk',
+      title: 'Support Hub',
       subtitle: 'Incident Resolution & SLA Tracking Platform',
       category: 'FULL STACK WEB',
       description:
@@ -110,7 +110,7 @@ const Projects = () => {
         'Engineered to streamline technical support operations, this ticketing suite empowers IT teams to triage incidents by severity, assign technicians automatically, track resolution velocity against strict SLAs, and maintain a centralized knowledge base.',
       tech: ['MongoDB', 'Express.js', 'React', 'Node.js', 'REST API'],
       github: 'https://github.com/LorenzTaganas/IT-Helpdesk-System.git',
-      image: '/projects/it_helpdesk.jpg',
+      image: '/projects/supporthub.png',
       progress: 80,
       status: 'Live',
       purpose: 'Personal',
@@ -120,6 +120,30 @@ const Projects = () => {
         'Technician assignment dashboard with active workload indicators',
         'Resolution velocity telemetry and interactive SLA compliance charts',
         'Incident activity audit log with timestamps and resolution summaries',
+      ],
+    },
+    {
+      id: 'portfolio',
+      specimenNumber: 'SPECIMEN · 05',
+      title: "Lorenz's Portfolio",
+      subtitle: 'Interactive Developer & QA Portfolio',
+      category: 'FRONTEND EXPERIENCE',
+      description:
+        'A responsive personal portfolio presenting full-stack engineering work, quality assurance experience, project case studies, and direct contact channels.',
+      fullDescription:
+        'This portfolio is a single-page Next.js experience built to present engineering work with a technical visual system. It combines responsive section layouts, theme and accent controls, project detail modals, ambient particles, and a protected contact workflow.',
+      tech: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS'],
+      github: 'https://github.com/LorenzTaganas/Portfolio.git',
+      image: '/projects/portfolio.png',
+      progress: 100,
+      status: 'Live',
+      purpose: 'Personal',
+      metric: 'Responsive UI',
+      features: [
+        'Responsive single-page layout for engineering and QA case studies',
+        'Light and dark themes with selectable accent-driven atmosphere',
+        'Centered project inspection modal with internal scrolling',
+        'Validated contact form with spam filtering and rate limiting',
       ],
     },
   ]
@@ -288,20 +312,30 @@ const Projects = () => {
             <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-6 sm:p-8 space-y-6">
               {/* Project Image Banner Mockup */}
               <div className="relative w-full h-56 sm:h-72 rounded-xl overflow-hidden border border-slate-200 dark:border-white/[0.1] bg-slate-100 dark:bg-[#07090e] shadow-md group">
-                <img
-                  src={selectedProject.image}
-                  alt={`${selectedProject.title} Interface Preview`}
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 dark:from-[#0e1118] via-transparent to-transparent opacity-80 pointer-events-none" />
-                <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between font-mono text-[11px] text-white">
-                  <span className="bg-black/70 backdrop-blur-md px-2.5 py-1 rounded border border-white/20">
-                    UI SPECIMEN CAPTURE
-                  </span>
-                  <span className="bg-black/70 backdrop-blur-md px-2.5 py-1 rounded border border-white/20 text-sky-300">
-                    {selectedProject.metric}
-                  </span>
-                </div>
+                {selectedProject.image ? (
+                  <>
+                    <img
+                      src={selectedProject.image}
+                      alt={`${selectedProject.title} Interface Preview`}
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 dark:from-[#0e1118] via-transparent to-transparent opacity-80 pointer-events-none" />
+                    <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between font-mono text-[11px] text-white">
+                      <span className="bg-black/70 backdrop-blur-md px-2.5 py-1 rounded border border-white/20">
+                        UI SPECIMEN CAPTURE
+                      </span>
+                      <span className="bg-black/70 backdrop-blur-md px-2.5 py-1 rounded border border-white/20 text-sky-300">
+                        {selectedProject.metric}
+                      </span>
+                    </div>
+                  </>
+                ) : (
+                  <div className="flex h-full flex-col items-center justify-center gap-3 bg-[radial-gradient(ellipse_at_center,var(--accent-glow),transparent_65%)] px-6 text-center">
+                    <span className="font-mono text-xs tracking-[0.3em] text-sky-600 dark:text-sky-300">PORTFOLIO SYSTEM</span>
+                    <span className="text-4xl font-bold tracking-tight text-slate-900 dark:text-white">LT<span className="text-sky-500">.</span>DEV</span>
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-slate-500 dark:text-gray-400">Interactive frontend specimen</span>
+                  </div>
+                )}
               </div>
 
               {/* Title & Subtitle */}
