@@ -242,9 +242,9 @@ const Projects = () => {
                 {/* Micro-pills and Inspection Cue */}
                 <div className="flex items-center justify-between flex-wrap gap-2">
                   <div className="flex items-center gap-1.5">
-                    <span className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider bg-sky-50 dark:bg-white/[0.04] border border-sky-200 dark:border-white/[0.08] text-sky-700 dark:text-sky-300 font-medium">
+                    {/* <span className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider bg-sky-50 dark:bg-white/[0.04] border border-sky-200 dark:border-white/[0.08] text-sky-700 dark:text-sky-300 font-medium">
                       {project.status}
-                    </span>
+                    </span> */}
                     <span className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider bg-sky-50 dark:bg-white/[0.04] border border-sky-200 dark:border-white/[0.08] text-sky-700 dark:text-sky-300 font-medium">
                       {project.purpose}
                     </span>
