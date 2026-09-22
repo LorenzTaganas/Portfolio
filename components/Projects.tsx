@@ -35,7 +35,7 @@ const Projects = () => {
       description:
         'Full-featured e-commerce ecosystem connecting artists and collectors with shopping cart, stripe payment flow, and curated artist profiles.',
       fullDescription:
-        'ArtHub is a comprehensive online marketplace engineered to empower digital and traditional artists. Built with a performant MERN stack architecture, it supports end-to-end shopping journeys including real-time inventory management, artist portfolio showcases, secure customer authentication, and payment workflows.',
+        'ADCore is a comprehensive online marketplace engineered to empower digital and traditional artists. Built with a performant MERN stack architecture, it supports end-to-end shopping journeys including real-time inventory management, artist portfolio showcases, secure customer authentication, and payment workflows.',
       tech: ['MongoDB', 'Express.js', 'React', 'Node.js', 'TailwindCSS'],
       github: 'https://github.com/LorenzTaganas/Arthubb',
       image: '/projects/adcore.png',
