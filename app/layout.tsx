@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Lorenz's Portfolio",
   description: "Full Stack Developer & Designer Portfolio",
+  icons: {
+    icon: '/profile.jpg', // Added leading slash
+  },
 };
 
 export default function RootLayout({
