@@ -123,8 +123,35 @@ const Projects = () => {
       ],
     },
     {
-      id: 'portfolio',
+      id: 'qa-forge',
       specimenNumber: 'SPECIMEN · 05',
+      title: 'QAForge',
+      subtitle: 'Quality Assurance & Test Management Platform',
+      category: 'FULL STACK WEB',
+      description:
+        'Full-cycle QA management platform for requirements traceability, test case management, test execution, defect tracking, and quality metrics.',
+      fullDescription:
+        'Engineered to streamline software quality assurance workflows, QAForge enables QA teams to manage requirements, organize test suites, create and execute test cases, track defects through their lifecycle, and monitor test coverage and quality metrics from a centralized platform.',
+      tech: [
+        'MongoDB','Express.js','React','Node.js','REST API',],
+      github: 'https://github.com/LorenzTaganas/QAForge.git',
+      image: '/projects/qaforge.png',
+      progress: 20,
+      status: 'Live',
+      purpose: 'Personal',
+      metric: '87% Test Pass Rate',
+      features: [
+        'Requirements traceability linking requirements to test cases, executions, and defects',
+        'Test case management with reusable test suites, test steps, priorities, and test types',
+        'Test run execution dashboard with Pass, Fail, Blocked, Skipped, and Not Run results',
+        'Defect tracking with severity, priority, status workflow, developer assignment, and retesting',
+        'QA metrics dashboard for test pass rate, requirements coverage, defect distribution, and execution progress',
+        'Activity timeline and audit logging for test case, execution, and defect lifecycle changes'
+      ],
+    },
+    {
+      id: 'portfolio',
+      specimenNumber: 'SPECIMEN · 06',
       title: "Lorenz's Portfolio",
       subtitle: 'Interactive Developer & QA Portfolio',
       category: 'FRONTEND EXPERIENCE',
