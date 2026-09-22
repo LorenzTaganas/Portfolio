@@ -81,6 +81,38 @@ const PlaywrightIcon = () => (
   </svg>
 )
 
+const GeminiIcon = () => (
+  <img
+    src="https://cdn.simpleicons.org/googlegemini"
+    alt=""
+    className="w-12 h-12"
+  />
+)
+
+const ClaudeIcon = () => (
+  <img
+    src="https://cdn.simpleicons.org/anthropic"
+    alt=""
+    className="w-12 h-12"
+  />
+)
+
+const PythonIcon = () => (
+  <img
+    src="https://cdn.simpleicons.org/python"
+    alt=""
+    className="w-12 h-12"
+  />
+)
+
+const AntigravityIcon = () => (
+  <img
+    src="https://antigravity.google/favicon.ico"
+    alt=""
+    className="w-12 h-12 rounded-lg"
+  />
+)
+
 const About = () => {
   const skills = [
     { name: 'HTML', icon: <HtmlIcon />, url: 'https://developer.mozilla.org/en-US/docs/Web/HTML' },
@@ -95,7 +127,11 @@ const About = () => {
     { name: 'Salesforce', icon: <SalesforceIcon />, url: 'https://www.salesforce.com' },
     { name: 'Postman', icon: <PostmanIcon />, url: 'https://www.postman.com' },
     { name: 'Git', icon: <GitIcon />, url: 'https://git-scm.com' },
-    { name: 'Playwright', icon: <PlaywrightIcon />, url: 'https://playwright.dev' }
+    { name: 'Playwright', icon: <PlaywrightIcon />, url: 'https://playwright.dev' },
+    { name: 'Gemini', icon: <GeminiIcon />, url: 'https://gemini.google.com' },
+    { name: 'Claude', icon: <ClaudeIcon />, url: 'https://claude.ai' },
+    { name: 'Python', icon: <PythonIcon />, url: 'https://www.python.org' },
+    { name: 'Antigravity', icon: <AntigravityIcon />, url: 'https://antigravity.google' }
   ]
 
   return (
@@ -192,11 +228,11 @@ const About = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
             <div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">Technical Arsenal</h3>
-              <p className="text-gray-500 dark:text-gray-400 font-mono text-xs">Frameworks, platforms & verification tools</p>
+              <p className="text-gray-500 dark:text-gray-400 font-mono text-xs">Frameworks, platforms, verification & AI workflows</p>
             </div>
             <div className="telemetry-pill">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400" />
-              <span>13 ACTIVE TECHNOLOGIES</span>
+              <span>17 ACTIVE TECHNOLOGIES</span>
             </div>
           </div>
 
