@@ -39,7 +39,7 @@ const Projects = () => {
       tech: ['MongoDB', 'Express.js', 'React', 'Node.js', 'TailwindCSS'],
       github: 'https://github.com/LorenzTaganas/Arthubb',
       image: '/projects/adcore.png',
-      progress: 98,
+      progress: 100,
       status: 'Production',
       purpose: 'Capstone',
       metric: '+99.2% Uptime',
