@@ -16,8 +16,8 @@ interface Project {
   demo?: string
   image?: string
   progress: number
-  status: 'Live' | 'Quiet' | 'Production' | 'Testing'
-  purpose: 'Capstone' | 'Personal' | 'Academic'
+  status: 'Live' | 'Quiet' | 'Production' | 'Testing' | 'In Development'
+  purpose: 'Capstone' | 'Personal' | 'Academic' | 'Startup'
   metric: string
   features: string[]
 }
@@ -123,8 +123,35 @@ const Projects = () => {
       ],
     },
     {
-      id: 'qa-forge',
+      id: 'ayosdito',
       specimenNumber: 'SPECIMEN · 05',
+      title: 'AyosDito',
+      subtitle: 'Local Services & Repair Marketplace',
+      category: 'FULL-STACK WEB APPLICATION',
+      description:
+        'A local services marketplace connecting Filipinos with nearby repair technicians and service providers. Customers can discover services, compare providers, and request quotations for their repair and maintenance needs.',
+      fullDescription:
+        'AyosDito is a full-stack marketplace designed to help Filipinos find local service professionals, including computer repair technicians, appliance repair specialists, electricians, and plumbers. The platform focuses on location-based discovery, transparent pricing, provider profiles, customer inquiries, quotation management, and reviews. Its goal is to make finding reliable local services easier while helping independent technicians and small businesses reach more customers.',
+      tech: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'PostgreSQL', 'Prisma'],
+      github: 'https://github.com/LorenzTaganas/AyosDito.git',
+      image: '/projects/ayosdito.png',
+      progress: 80,
+      status: 'In Development',
+      purpose: 'Startup',
+      metric: 'Local Service Discovery',
+      features: [
+        'Location-based discovery of local repair technicians and service providers',
+        'Provider profiles with service descriptions, pricing, and portfolio images',
+        'Customer service requests and provider quotation management',
+        'Customer reviews, ratings, and provider verification workflows',
+        'Role-based dashboards for customers, providers, and administrators',
+        'Responsive interface designed for Filipino customers and mobile users',
+        'Security-focused authentication, authorization, and input validation',
+      ],
+    },
+    {
+      id: 'qa-forge',
+      specimenNumber: 'SPECIMEN · 06',
       title: 'QAForge',
       subtitle: 'Quality Assurance & Test Management Platform',
       category: 'FULL STACK WEB',
@@ -151,7 +178,7 @@ const Projects = () => {
     },
     {
       id: 'portfolio',
-      specimenNumber: 'SPECIMEN · 06',
+      specimenNumber: 'SPECIMEN · 07',
       title: "Lorenz's Portfolio",
       subtitle: 'Interactive Developer & QA Portfolio',
       category: 'FRONTEND EXPERIENCE',
